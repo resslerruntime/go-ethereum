@@ -1,5 +1,7 @@
 # otto
+
 --
+
 ```go
 import "github.com/robertkrimen/otto"
 ```
@@ -101,7 +103,7 @@ result, _ = vm.Run(`
     sayHello();             // Hello, undefined
 
     result = twoPlus(2.0); // 4
-`) 
+`)
 ```
 
 ### Parser
@@ -160,7 +162,6 @@ import (
 
 For more information: http://github.com/robertkrimen/otto/tree/master/underscore
 
-
 ### Caveat Emptor
 
 The following are some limitations with otto:
@@ -168,7 +169,6 @@ The following are some limitations with otto:
     * "use strict" will parse, but does nothing.
     * The regular expression engine (re2/regexp) is not fully compatible with the ECMA5 specification.
     * Otto targets ES5. ES6 features (eg: Typed Arrays) are not supported.
-
 
 ### Regular Expression Incompatibility
 
@@ -191,7 +191,6 @@ More information about re2: https://code.google.com/p/re2/
 In addition to the above, re2 (Go) has a different definition for \s: [\t\n\f\r
 ]. The JavaScript definition, on the other hand, also includes \v, Unicode
 "Separator, Space", etc.
-
 
 ### Halting Problem
 
@@ -261,11 +260,11 @@ http://github.com/robertkrimen/natto
 
 Here is some more discussion of the issue:
 
-* http://book.mixu.net/node/ch2.html
+- http://book.mixu.net/node/ch2.html
 
-* http://en.wikipedia.org/wiki/Reentrancy_%28computing%29
+- http://en.wikipedia.org/wiki/Reentrancy_%28computing%29
 
-* http://aaroncrane.co.uk/2009/02/perl_safe_signals/
+- http://aaroncrane.co.uk/2009/02/perl_safe_signals/
 
 ## Usage
 
@@ -287,6 +286,7 @@ An Error represents a runtime error, e.g. a TypeError, a ReferenceError, etc.
 ```go
 func (err Error) Error() string
 ```
+
 Error returns a description of the error
 
     TypeError: 'def' is not a function
@@ -296,6 +296,7 @@ Error returns a description of the error
 ```go
 func (err Error) String() string
 ```
+
 String returns a description of the error and a trace of where the error
 occurred.
 
@@ -320,6 +321,7 @@ FunctionCall is an encapsulation of a JavaScript function call.
 ```go
 func (self FunctionCall) Argument(index int) Value
 ```
+
 Argument will return the value of the argument at the given index.
 
 If no such argument exists, undefined is returned.
@@ -338,6 +340,7 @@ Object is the representation of a JavaScript object.
 ```go
 func (self Object) Call(name string, argumentList ...interface{}) (Value, error)
 ```
+
 Call a method on the object.
 
 It is essentially equivalent to:
@@ -356,6 +359,7 @@ An undefined value and an error will result if:
 ```go
 func (self Object) Class() string
 ```
+
 Class will return the class string of the object.
 
 The return value will (generally) be one of:
@@ -374,6 +378,7 @@ The return value will (generally) be one of:
 ```go
 func (self Object) Get(name string) (Value, error)
 ```
+
 Get the value of the property with the given name.
 
 #### func (Object) Keys
@@ -381,6 +386,7 @@ Get the value of the property with the given name.
 ```go
 func (self Object) Keys() []string
 ```
+
 Get the keys for the object
 
 Equivalent to calling Object.keys on the object
@@ -390,6 +396,7 @@ Equivalent to calling Object.keys on the object
 ```go
 func (self Object) Set(name string, value interface{}) error
 ```
+
 Set the property of the given name to the given value.
 
 An error will result if the setting the property triggers an exception (i.e.
@@ -400,6 +407,7 @@ read-only), or there is an error during conversion of the given value.
 ```go
 func (self Object) Value() Value
 ```
+
 Value will return self as a value.
 
 #### type Otto
@@ -415,18 +423,20 @@ type Otto struct {
 Otto is the representation of the JavaScript runtime. Each instance of Otto has
 a self-contained namespace.
 
-#### func  New
+#### func New
 
 ```go
 func New() *Otto
 ```
+
 New will allocate a new JavaScript runtime
 
-#### func  Run
+#### func Run
 
 ```go
 func Run(src interface{}) (*Otto, Value, error)
 ```
+
 Run will allocate a new JavaScript runtime, run the given source on the
 allocated runtime, and return the runtime, resulting value, and error (if any).
 
@@ -443,6 +453,7 @@ behavior is undefined.
 ```go
 func (self Otto) Call(source string, this interface{}, argumentList ...interface{}) (Value, error)
 ```
+
 Call the given JavaScript with a given this and arguments.
 
 If this is nil, then some special handling takes place to determine the proper
@@ -465,11 +476,12 @@ value, _ := vm.Call("new Object", nil, "Hello, World.")
 value, _ := vm.Call(`[ 1, 2, 3, undefined, 4 ].concat`, nil, 5, 6, 7, "abc")
 ```
 
-#### func (*Otto) Compile
+#### func (\*Otto) Compile
 
 ```go
 func (self *Otto) Compile(filename string, src interface{}) (*Script, error)
 ```
+
 Compile will parse the given source and return a Script value or nil and an
 error if there was a problem during compilation.
 
@@ -478,11 +490,12 @@ script, err := vm.Compile("", `var abc; if (!abc) abc = 0; abc += 2; abc;`)
 vm.Run(script)
 ```
 
-#### func (*Otto) Copy
+#### func (\*Otto) Copy
 
 ```go
 func (in *Otto) Copy() *Otto
 ```
+
 Copy will create a copy/clone of the runtime.
 
 Copy is useful for saving some time when creating many similar runtimes.
@@ -497,6 +510,7 @@ Be on the lookout for memory leaks or inadvertent sharing of resources.
 ```go
 func (self Otto) Get(name string) (Value, error)
 ```
+
 Get the value of the top-level binding of the given name.
 
 If there is an error (like the binding does not exist), then the value will be
@@ -507,6 +521,7 @@ undefined.
 ```go
 func (self Otto) Object(source string) (*Object, error)
 ```
+
 Object will run the given source and return the result as an object.
 
 For example, accessing an existing object:
@@ -536,6 +551,7 @@ and an error is returned.
 ```go
 func (self Otto) Run(src interface{}) (Value, error)
 ```
+
 Run will run the given source (parsing it first if necessary), returning the
 resulting value and error (if any)
 
@@ -555,6 +571,7 @@ behavior is undefined.
 ```go
 func (self Otto) Set(name string, value interface{}) error
 ```
+
 Set the top-level binding of the given name to the given value.
 
 Set will automatically apply ToValue to the given value in order to convert it
@@ -570,6 +587,7 @@ If the top-level binding does not exist, it will be created.
 ```go
 func (self Otto) ToValue(value interface{}) (Value, error)
 ```
+
 ToValue will convert an interface{} value to a value digestible by
 otto/JavaScript.
 
@@ -583,7 +601,7 @@ type Script struct {
 Script is a handle for some (reusable) JavaScript. Passing a Script value to a
 run method will evaluate the JavaScript.
 
-#### func (*Script) String
+#### func (\*Script) String
 
 ```go
 func (self *Script) String() string
@@ -598,11 +616,12 @@ type Value struct {
 
 Value is the representation of a JavaScript value.
 
-#### func  FalseValue
+#### func FalseValue
 
 ```go
 func FalseValue() Value
 ```
+
 FalseValue will return a value representing false.
 
 It is equivalent to:
@@ -611,11 +630,12 @@ It is equivalent to:
 ToValue(false)
 ```
 
-#### func  NaNValue
+#### func NaNValue
 
 ```go
 func NaNValue() Value
 ```
+
 NaNValue will return a value representing NaN.
 
 It is equivalent to:
@@ -624,29 +644,32 @@ It is equivalent to:
 ToValue(math.NaN())
 ```
 
-#### func  NullValue
+#### func NullValue
 
 ```go
 func NullValue() Value
 ```
+
 NullValue will return a Value representing null.
 
-#### func  ToValue
+#### func ToValue
 
 ```go
 func ToValue(value interface{}) (Value, error)
 ```
+
 ToValue will convert an interface{} value to a value digestible by
 otto/JavaScript
 
 This function will not work for advanced types (struct, map, slice/array, etc.)
 and you should use Otto.ToValue instead.
 
-#### func  TrueValue
+#### func TrueValue
 
 ```go
 func TrueValue() Value
 ```
+
 TrueValue will return a value representing true.
 
 It is equivalent to:
@@ -655,11 +678,12 @@ It is equivalent to:
 ToValue(true)
 ```
 
-#### func  UndefinedValue
+#### func UndefinedValue
 
 ```go
 func UndefinedValue() Value
 ```
+
 UndefinedValue will return a Value representing undefined.
 
 #### func (Value) Call
@@ -667,6 +691,7 @@ UndefinedValue will return a Value representing undefined.
 ```go
 func (value Value) Call(this Value, argumentList ...interface{}) (Value, error)
 ```
+
 Call the value as a function with the given this value and argument list and
 return the result of invocation. It is essentially equivalent to:
 
@@ -683,6 +708,7 @@ An undefined value and an error will result if:
 ```go
 func (value Value) Class() string
 ```
+
 Class will return the class string of the value or the empty string if value is
 not an object.
 
@@ -702,6 +728,7 @@ The return value will (generally) be one of:
 ```go
 func (self Value) Export() (interface{}, error)
 ```
+
 Export will attempt to convert the value to a Go representation and return it
 via an interface{} kind.
 
@@ -723,6 +750,7 @@ If a reasonable conversion is not possible, then the original value is returned.
 ```go
 func (value Value) IsBoolean() bool
 ```
+
 IsBoolean will return true if value is a boolean (primitive).
 
 #### func (Value) IsDefined
@@ -730,6 +758,7 @@ IsBoolean will return true if value is a boolean (primitive).
 ```go
 func (value Value) IsDefined() bool
 ```
+
 IsDefined will return false if the value is undefined, and true otherwise.
 
 #### func (Value) IsFunction
@@ -737,6 +766,7 @@ IsDefined will return false if the value is undefined, and true otherwise.
 ```go
 func (value Value) IsFunction() bool
 ```
+
 IsFunction will return true if value is a function.
 
 #### func (Value) IsNaN
@@ -744,6 +774,7 @@ IsFunction will return true if value is a function.
 ```go
 func (value Value) IsNaN() bool
 ```
+
 IsNaN will return true if value is NaN (or would convert to NaN).
 
 #### func (Value) IsNull
@@ -751,6 +782,7 @@ IsNaN will return true if value is NaN (or would convert to NaN).
 ```go
 func (value Value) IsNull() bool
 ```
+
 IsNull will return true if the value is null, and false otherwise.
 
 #### func (Value) IsNumber
@@ -758,6 +790,7 @@ IsNull will return true if the value is null, and false otherwise.
 ```go
 func (value Value) IsNumber() bool
 ```
+
 IsNumber will return true if value is a number (primitive).
 
 #### func (Value) IsObject
@@ -765,6 +798,7 @@ IsNumber will return true if value is a number (primitive).
 ```go
 func (value Value) IsObject() bool
 ```
+
 IsObject will return true if value is an object.
 
 #### func (Value) IsPrimitive
@@ -772,6 +806,7 @@ IsObject will return true if value is an object.
 ```go
 func (value Value) IsPrimitive() bool
 ```
+
 IsPrimitive will return true if value is a primitive (any kind of primitive).
 
 #### func (Value) IsString
@@ -779,6 +814,7 @@ IsPrimitive will return true if value is a primitive (any kind of primitive).
 ```go
 func (value Value) IsString() bool
 ```
+
 IsString will return true if value is a string (primitive).
 
 #### func (Value) IsUndefined
@@ -786,6 +822,7 @@ IsString will return true if value is a string (primitive).
 ```go
 func (value Value) IsUndefined() bool
 ```
+
 IsUndefined will return true if the value is undefined, and false otherwise.
 
 #### func (Value) Object
@@ -793,6 +830,7 @@ IsUndefined will return true if the value is undefined, and false otherwise.
 ```go
 func (value Value) Object() *Object
 ```
+
 Object will return the object of the value, or nil if value is not an object.
 
 This method will not do any implicit conversion. For example, calling this
@@ -803,6 +841,7 @@ method on a string primitive value will not return a String object.
 ```go
 func (value Value) String() string
 ```
+
 String will return the value as a string.
 
 This method will make return the empty string if there is an error.
@@ -812,6 +851,7 @@ This method will make return the empty string if there is an error.
 ```go
 func (value Value) ToBoolean() (bool, error)
 ```
+
 ToBoolean will convert the value to a boolean (bool).
 
     ToValue(0).ToBoolean() => false
@@ -828,6 +868,7 @@ then the result will be false and an error.
 ```go
 func (value Value) ToFloat() (float64, error)
 ```
+
 ToFloat will convert the value to a number (float64).
 
     ToValue(0).ToFloat() => 0.
@@ -842,6 +883,7 @@ then the result will be 0 and an error.
 ```go
 func (value Value) ToInteger() (int64, error)
 ```
+
 ToInteger will convert the value to a number (int64).
 
     ToValue(0).ToInteger() => 0
@@ -856,6 +898,7 @@ then the result will be 0 and an error.
 ```go
 func (value Value) ToString() (string, error)
 ```
+
 ToString will convert the value to a string (string).
 
     ToValue(0).ToString() => "0"

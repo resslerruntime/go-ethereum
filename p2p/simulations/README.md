@@ -10,9 +10,9 @@ extracting useful information.
 Each node in a simulation network runs multiple services by wrapping a collection
 of objects which implement the `node.Service` interface meaning they:
 
-* can be started and stopped
-* run p2p protocols
-* expose RPC APIs
+- can be started and stopped
+- run p2p protocols
+- expose RPC APIs
 
 This means that any object which implements the `node.Service` interface can be
 used to run a node in the simulation.
@@ -86,9 +86,9 @@ events when certain actions occur.
 
 A simulation network emits the following events:
 
-* node event       - when nodes are created / started / stopped
-* connection event - when nodes are connected / disconnected
-* message event    - when a protocol message is sent between two nodes
+- node event - when nodes are created / started / stopped
+- connection event - when nodes are connected / disconnected
+- message event - when a protocol message is sent between two nodes
 
 The events have a "control" flag which when set indicates that the event is the
 outcome of a controlled simulation action (e.g. creating a node or explicitly
@@ -110,13 +110,13 @@ network and then wait for expectations to be met.
 With a running simulation network, the `Simulation.Run` method can be called
 with a `Step` which has the following fields:
 
-* `Action` - a function which performs some action in the network
+- `Action` - a function which performs some action in the network
 
-* `Expect` - an expectation function which returns whether or not a
-    given node meets the expectation
+- `Expect` - an expectation function which returns whether or not a
+  given node meets the expectation
 
-* `Trigger` - a channel which receives node IDs which then trigger a check
-    of the expectation function to be performed against that node
+- `Trigger` - a channel which receives node IDs which then trigger a check
+  of the expectation function to be performed against that node
 
 As a concrete example, consider a simulated network of Ethereum nodes. An
 `Action` could be the sending of a transaction, `Expect` it being included in

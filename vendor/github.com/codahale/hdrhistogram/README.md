@@ -1,5 +1,4 @@
-hdrhistogram
-============
+# hdrhistogram
 
 [![Build Status](https://travis-ci.org/codahale/hdrhistogram.png?branch=master)](https://travis-ci.org/codahale/hdrhistogram)
 

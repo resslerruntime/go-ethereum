@@ -1,6 +1,7 @@
 # token
+
 --
-    import "github.com/robertkrimen/otto/token"
+import "github.com/robertkrimen/otto/token"
 
 Package token defines constants representing the lexical tokens of JavaScript
 (ECMA5).
@@ -124,11 +125,12 @@ type Token int
 
 Token is the set of lexical tokens in JavaScript (ECMA5).
 
-#### func  IsKeyword
+#### func IsKeyword
 
 ```go
 func IsKeyword(literal string) (Token, bool)
 ```
+
 IsKeyword returns the keyword token if literal is a keyword, a KEYWORD token if
 the literal is a future keyword (const, let, class, super, ...), or 0 if the
 literal is not a keyword.
@@ -162,6 +164,7 @@ literal is considered a future keyword in strict-mode only.
 ```go
 func (tkn Token) String() string
 ```
+
 String returns the string corresponding to the token. For operators, delimiters,
 and keywords the string is the actual token string (e.g., for the token PLUS,
 the String() is "+"). For all other tokens the string corresponds to the token

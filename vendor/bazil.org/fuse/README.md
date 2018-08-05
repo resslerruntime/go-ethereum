@@ -1,5 +1,4 @@
-bazil.org/fuse -- Filesystems in Go
-===================================
+# bazil.org/fuse -- Filesystems in Go
 
 `bazil.org/fuse` is a Go library for writing FUSE userspace
 filesystems.

@@ -75,21 +75,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -101,9 +95,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -193,21 +185,15 @@
           "alias": "p95($tag_host)",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -219,9 +205,7 @@
           "select": [
             [
               {
-                "params": [
-                  "p95"
-                ],
+                "params": ["p95"],
                 "type": "field"
               },
               {
@@ -311,21 +295,15 @@
           "alias": "1 $tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -337,9 +315,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -354,21 +330,15 @@
           "alias": "2 $tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -380,9 +350,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -397,21 +365,15 @@
           "alias": "3 $tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -423,9 +385,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -515,21 +475,15 @@
           "alias": "1 $tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -541,9 +495,7 @@
           "select": [
             [
               {
-                "params": [
-                  "p95"
-                ],
+                "params": ["p95"],
                 "type": "field"
               },
               {
@@ -558,21 +510,15 @@
           "alias": "2 $tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -584,9 +530,7 @@
           "select": [
             [
               {
-                "params": [
-                  "p95"
-                ],
+                "params": ["p95"],
                 "type": "field"
               },
               {
@@ -676,21 +620,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -702,9 +640,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -804,21 +740,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -830,9 +760,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -943,15 +871,11 @@
               "dsType": "influxdb",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "null"
-                  ],
+                  "params": ["null"],
                   "type": "fill"
                 }
               ],
@@ -963,9 +887,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -987,15 +909,11 @@
               "dsType": "influxdb",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "null"
-                  ],
+                  "params": ["null"],
                   "type": "fill"
                 }
               ],
@@ -1007,9 +925,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -1105,21 +1021,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1131,9 +1041,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "p95"
-                    ],
+                    "params": ["p95"],
                     "type": "field"
                   },
                   {
@@ -1229,21 +1137,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1255,9 +1157,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "p50"
-                    ],
+                    "params": ["p50"],
                     "type": "field"
                   },
                   {
@@ -1353,21 +1253,15 @@
               "alias": "POST",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1379,9 +1273,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "p95"
-                    ],
+                    "params": ["p95"],
                     "type": "field"
                   },
                   {
@@ -1492,21 +1384,15 @@
               "dsType": "influxdb",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1518,9 +1404,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -1617,21 +1501,15 @@
               "dsType": "influxdb",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1643,9 +1521,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -1742,21 +1618,15 @@
               "dsType": "influxdb",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1768,9 +1638,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -1884,21 +1752,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1910,9 +1772,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2008,21 +1868,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2034,9 +1888,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2132,21 +1984,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2158,9 +2004,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2257,21 +2101,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2283,9 +2121,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2381,25 +2217,20 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
-          "measurement": "swarm.network.stream.handle_retrieve_request_msg.count.count",
+          "measurement":
+            "swarm.network.stream.handle_retrieve_request_msg.count.count",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2407,9 +2238,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2506,21 +2335,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2532,9 +2355,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2631,21 +2452,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2657,9 +2472,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2756,21 +2569,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2782,9 +2589,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -2881,21 +2686,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -2907,9 +2706,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -3006,21 +2803,15 @@
           "dsType": "influxdb",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -3032,9 +2823,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -3136,12 +2925,7 @@
         "allValue": null,
         "current": {
           "text": "swarm_30399 + swarm_30400 + swarm_30401 + swarm_30402",
-          "value": [
-            "swarm_30399",
-            "swarm_30400",
-            "swarm_30401",
-            "swarm_30402"
-          ]
+          "value": ["swarm_30399", "swarm_30400", "swarm_30401", "swarm_30402"]
         },
         "datasource": "metrics",
         "hide": 0,
@@ -3179,17 +2963,7 @@
       "2h",
       "1d"
     ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
+    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
   },
   "timezone": "",
   "title": "Swarm",

@@ -1,14 +1,13 @@
-ASCII Table Writer
-=========
+# ASCII Table Writer
 
 [![Build Status](https://travis-ci.org/olekukonko/tablewriter.png?branch=master)](https://travis-ci.org/olekukonko/tablewriter) [![Total views](https://sourcegraph.com/api/repos/github.com/olekukonko/tablewriter/counters/views.png)](https://sourcegraph.com/github.com/olekukonko/tablewriter)
 
-Generate ASCII table on the fly ...  Installation is simple as
+Generate ASCII table on the fly ... Installation is simple as
 
     go get  github.com/olekukonko/tablewriter
 
-
 #### Features
+
 - Automatic Padding
 - Support Multiple Lines
 - Supports Alignment
@@ -23,8 +22,8 @@ Generate ASCII table on the fly ...  Installation is simple as
 - Set custom footer support
 - Optional identical cells merging
 
+#### Example 1 - Basic
 
-#### Example   1 - Basic
 ```go
 data := [][]string{
     []string{"A", "The Good", "500"},
@@ -42,7 +41,8 @@ for _, v := range data {
 table.Render() // Send output
 ```
 
-##### Output  1
+##### Output 1
+
 ```
 +------+-----------------------+--------+
 | NAME |         SIGN          | RATING |
@@ -55,6 +55,7 @@ table.Render() // Send output
 ```
 
 #### Example 2 - Without Border / Footer / Bulk Append
+
 ```go
 data := [][]string{
     []string{"1/1/2014", "Domain name", "2233", "$10.98"},
@@ -72,8 +73,8 @@ table.Render()
 ```
 
 ##### Output 2
-```
 
+```
     DATE   |       DESCRIPTION        |  CV2  | AMOUNT
 +----------+--------------------------+-------+---------+
   1/1/2014 | Domain name              |  2233 | $10.98
@@ -83,11 +84,10 @@ table.Render()
 +----------+--------------------------+-------+---------+
                                         TOTAL | $146 93
                                       +-------+---------+
-
 ```
 
-
 #### Example 3 - CSV
+
 ```go
 table, _ := tablewriter.NewCSV(os.Stdout, "test_info.csv", true)
 table.SetAlignment(tablewriter.ALIGN_LEFT)   // Set Alignment
@@ -95,6 +95,7 @@ table.Render()
 ```
 
 ##### Output 3
+
 ```
 +----------+--------------+------+-----+---------+----------------+
 |  FIELD   |     TYPE     | NULL | KEY | DEFAULT |     EXTRA      |
@@ -105,7 +106,8 @@ table.Render()
 +----------+--------------+------+-----+---------+----------------+
 ```
 
-#### Example 4  - Custom Separator
+#### Example 4 - Custom Separator
+
 ```go
 table, _ := tablewriter.NewCSV(os.Stdout, "test.csv", true)
 table.SetRowLine(true)         // Enable row line
@@ -120,6 +122,7 @@ table.Render()
 ```
 
 ##### Output 4
+
 ```
 *------------*-----------*---------*
 ╪ FIRST NAME ╪ LAST NAME ╪   SSN   ╪
@@ -133,6 +136,7 @@ table.Render()
 ```
 
 ##### Example 5 - Markdown Format
+
 ```go
 data := [][]string{
 	[]string{"1/1/2014", "Domain name", "2233", "$10.98"},
@@ -150,6 +154,7 @@ table.Render()
 ```
 
 ##### Output 5
+
 ```
 |   DATE   |       DESCRIPTION        | CV2  | AMOUNT |
 |----------|--------------------------|------|--------|
@@ -159,7 +164,8 @@ table.Render()
 | 1/4/2014 | February Extra Bandwidth | 2233 | $30.00 |
 ```
 
-#### Example 6  - Identical cells merging
+#### Example 6 - Identical cells merging
+
 ```go
 data := [][]string{
   []string{"1/1/2014", "Domain name", "1234", "$10.98"},
@@ -178,6 +184,7 @@ table.Render()
 ```
 
 ##### Output 6
+
 ```
 +----------+--------------------------+-------+---------+
 |   DATE   |       DESCRIPTION        |  CV2  | AMOUNT  |
@@ -195,9 +202,10 @@ table.Render()
 ```
 
 #### TODO
-- ~~Import Directly from CSV~~  - `done`
-- ~~Support for `SetFooter`~~  - `done`
-- ~~Support for `SetBorder`~~  - `done`
+
+- ~~Import Directly from CSV~~ - `done`
+- ~~Support for `SetFooter`~~ - `done`
+- ~~Support for `SetBorder`~~ - `done`
 - ~~Support table with uneven rows~~ - `done`
 - Support custom alignment
 - General Improvement & Optimisation

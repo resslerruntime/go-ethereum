@@ -1,6 +1,7 @@
 # parser
+
 --
-    import "github.com/robertkrimen/otto/parser"
+import "github.com/robertkrimen/otto/parser"
 
 Package parser implements a parser for JavaScript.
 
@@ -28,7 +29,6 @@ Parse and return an AST
     // Parse some JavaScript, yielding a *ast.Program and/or an ErrorList
     program, err := parser.ParseFile(nil, filename, src, 0)
 
-
 ### Warning
 
 The parser and AST interfaces are still works-in-progress (particularly where
@@ -36,11 +36,12 @@ node types are concerned) and may change in the future.
 
 ## Usage
 
-#### func  ParseFile
+#### func ParseFile
 
 ```go
 func ParseFile(fileSet *file.FileSet, filename string, src interface{}, mode Mode) (*ast.Program, error)
 ```
+
 ParseFile parses the source code of a single JavaScript/ECMAScript source file
 and returns the corresponding ast.Program node.
 
@@ -55,27 +56,29 @@ always be in UTF-8.
     // Parse some JavaScript, yielding a *ast.Program and/or an ErrorList
     program, err := parser.ParseFile(nil, "", `if (abc > 1) {}`, 0)
 
-#### func  ParseFunction
+#### func ParseFunction
 
 ```go
 func ParseFunction(parameterList, body string) (*ast.FunctionLiteral, error)
 ```
+
 ParseFunction parses a given parameter list and body as a function and returns
 the corresponding ast.FunctionLiteral node.
 
 The parameter list, if any, should be a comma-separated list of identifiers.
 
-#### func  ReadSource
+#### func ReadSource
 
 ```go
 func ReadSource(filename string, src interface{}) ([]byte, error)
 ```
 
-#### func  TransformRegExp
+#### func TransformRegExp
 
 ```go
 func TransformRegExp(pattern string) (string, error)
 ```
+
 TransformRegExp transforms a JavaScript pattern into a Go "regexp" pattern.
 
 re2 (Go) cannot do backtracking, so the presence of a lookahead (?=) (?!) or
@@ -116,13 +119,14 @@ func (self Error) Error() string
 type ErrorList []*Error
 ```
 
-ErrorList is a list of *Errors.
+ErrorList is a list of \*Errors.
 
-#### func (*ErrorList) Add
+#### func (\*ErrorList) Add
 
 ```go
 func (self *ErrorList) Add(position file.Position, msg string)
 ```
+
 Add adds an Error with given position and message to an ErrorList.
 
 #### func (ErrorList) Err
@@ -130,6 +134,7 @@ Add adds an Error with given position and message to an ErrorList.
 ```go
 func (self ErrorList) Err() error
 ```
+
 Err returns an error equivalent to this ErrorList. If the list is empty, Err
 returns nil.
 
@@ -138,6 +143,7 @@ returns nil.
 ```go
 func (self ErrorList) Error() string
 ```
+
 Error implements the Error interface.
 
 #### func (ErrorList) Len
@@ -152,11 +158,12 @@ func (self ErrorList) Len() int
 func (self ErrorList) Less(i, j int) bool
 ```
 
-#### func (*ErrorList) Reset
+#### func (\*ErrorList) Reset
 
 ```go
 func (self *ErrorList) Reset()
 ```
+
 Reset resets an ErrorList to no errors.
 
 #### func (ErrorList) Sort

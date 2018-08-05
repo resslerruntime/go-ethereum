@@ -1,9 +1,9 @@
 # ast
+
 --
-    import "github.com/robertkrimen/otto/ast"
+import "github.com/robertkrimen/otto/ast"
 
 Package ast declares types representing a JavaScript AST.
-
 
 ### Warning
 
@@ -22,14 +22,13 @@ type ArrayLiteral struct {
 }
 ```
 
-
-#### func (*ArrayLiteral) Idx0
+#### func (\*ArrayLiteral) Idx0
 
 ```go
 func (self *ArrayLiteral) Idx0() file.Idx
 ```
 
-#### func (*ArrayLiteral) Idx1
+#### func (\*ArrayLiteral) Idx1
 
 ```go
 func (self *ArrayLiteral) Idx1() file.Idx
@@ -45,14 +44,13 @@ type AssignExpression struct {
 }
 ```
 
-
-#### func (*AssignExpression) Idx0
+#### func (\*AssignExpression) Idx0
 
 ```go
 func (self *AssignExpression) Idx0() file.Idx
 ```
 
-#### func (*AssignExpression) Idx1
+#### func (\*AssignExpression) Idx1
 
 ```go
 func (self *AssignExpression) Idx1() file.Idx
@@ -67,14 +65,13 @@ type BadExpression struct {
 }
 ```
 
-
-#### func (*BadExpression) Idx0
+#### func (\*BadExpression) Idx0
 
 ```go
 func (self *BadExpression) Idx0() file.Idx
 ```
 
-#### func (*BadExpression) Idx1
+#### func (\*BadExpression) Idx1
 
 ```go
 func (self *BadExpression) Idx1() file.Idx
@@ -89,14 +86,13 @@ type BadStatement struct {
 }
 ```
 
-
-#### func (*BadStatement) Idx0
+#### func (\*BadStatement) Idx0
 
 ```go
 func (self *BadStatement) Idx0() file.Idx
 ```
 
-#### func (*BadStatement) Idx1
+#### func (\*BadStatement) Idx1
 
 ```go
 func (self *BadStatement) Idx1() file.Idx
@@ -113,14 +109,13 @@ type BinaryExpression struct {
 }
 ```
 
-
-#### func (*BinaryExpression) Idx0
+#### func (\*BinaryExpression) Idx0
 
 ```go
 func (self *BinaryExpression) Idx0() file.Idx
 ```
 
-#### func (*BinaryExpression) Idx1
+#### func (\*BinaryExpression) Idx1
 
 ```go
 func (self *BinaryExpression) Idx1() file.Idx
@@ -136,14 +131,13 @@ type BlockStatement struct {
 }
 ```
 
-
-#### func (*BlockStatement) Idx0
+#### func (\*BlockStatement) Idx0
 
 ```go
 func (self *BlockStatement) Idx0() file.Idx
 ```
 
-#### func (*BlockStatement) Idx1
+#### func (\*BlockStatement) Idx1
 
 ```go
 func (self *BlockStatement) Idx1() file.Idx
@@ -159,14 +153,13 @@ type BooleanLiteral struct {
 }
 ```
 
-
-#### func (*BooleanLiteral) Idx0
+#### func (\*BooleanLiteral) Idx0
 
 ```go
 func (self *BooleanLiteral) Idx0() file.Idx
 ```
 
-#### func (*BooleanLiteral) Idx1
+#### func (\*BooleanLiteral) Idx1
 
 ```go
 func (self *BooleanLiteral) Idx1() file.Idx
@@ -183,14 +176,13 @@ type BracketExpression struct {
 }
 ```
 
-
-#### func (*BracketExpression) Idx0
+#### func (\*BracketExpression) Idx0
 
 ```go
 func (self *BracketExpression) Idx0() file.Idx
 ```
 
-#### func (*BracketExpression) Idx1
+#### func (\*BracketExpression) Idx1
 
 ```go
 func (self *BracketExpression) Idx1() file.Idx
@@ -206,14 +198,13 @@ type BranchStatement struct {
 }
 ```
 
-
-#### func (*BranchStatement) Idx0
+#### func (\*BranchStatement) Idx0
 
 ```go
 func (self *BranchStatement) Idx0() file.Idx
 ```
 
-#### func (*BranchStatement) Idx1
+#### func (\*BranchStatement) Idx1
 
 ```go
 func (self *BranchStatement) Idx1() file.Idx
@@ -230,14 +221,13 @@ type CallExpression struct {
 }
 ```
 
-
-#### func (*CallExpression) Idx0
+#### func (\*CallExpression) Idx0
 
 ```go
 func (self *CallExpression) Idx0() file.Idx
 ```
 
-#### func (*CallExpression) Idx1
+#### func (\*CallExpression) Idx1
 
 ```go
 func (self *CallExpression) Idx1() file.Idx
@@ -253,14 +243,13 @@ type CaseStatement struct {
 }
 ```
 
-
-#### func (*CaseStatement) Idx0
+#### func (\*CaseStatement) Idx0
 
 ```go
 func (self *CaseStatement) Idx0() file.Idx
 ```
 
-#### func (*CaseStatement) Idx1
+#### func (\*CaseStatement) Idx1
 
 ```go
 func (self *CaseStatement) Idx1() file.Idx
@@ -276,14 +265,13 @@ type CatchStatement struct {
 }
 ```
 
-
-#### func (*CatchStatement) Idx0
+#### func (\*CatchStatement) Idx0
 
 ```go
 func (self *CatchStatement) Idx0() file.Idx
 ```
 
-#### func (*CatchStatement) Idx1
+#### func (\*CatchStatement) Idx1
 
 ```go
 func (self *CatchStatement) Idx1() file.Idx
@@ -299,14 +287,13 @@ type ConditionalExpression struct {
 }
 ```
 
-
-#### func (*ConditionalExpression) Idx0
+#### func (\*ConditionalExpression) Idx0
 
 ```go
 func (self *ConditionalExpression) Idx0() file.Idx
 ```
 
-#### func (*ConditionalExpression) Idx1
+#### func (\*ConditionalExpression) Idx1
 
 ```go
 func (self *ConditionalExpression) Idx1() file.Idx
@@ -320,14 +307,13 @@ type DebuggerStatement struct {
 }
 ```
 
-
-#### func (*DebuggerStatement) Idx0
+#### func (\*DebuggerStatement) Idx0
 
 ```go
 func (self *DebuggerStatement) Idx0() file.Idx
 ```
 
-#### func (*DebuggerStatement) Idx1
+#### func (\*DebuggerStatement) Idx1
 
 ```go
 func (self *DebuggerStatement) Idx1() file.Idx
@@ -353,14 +339,13 @@ type DoWhileStatement struct {
 }
 ```
 
-
-#### func (*DoWhileStatement) Idx0
+#### func (\*DoWhileStatement) Idx0
 
 ```go
 func (self *DoWhileStatement) Idx0() file.Idx
 ```
 
-#### func (*DoWhileStatement) Idx1
+#### func (\*DoWhileStatement) Idx1
 
 ```go
 func (self *DoWhileStatement) Idx1() file.Idx
@@ -375,14 +360,13 @@ type DotExpression struct {
 }
 ```
 
-
-#### func (*DotExpression) Idx0
+#### func (\*DotExpression) Idx0
 
 ```go
 func (self *DotExpression) Idx0() file.Idx
 ```
 
-#### func (*DotExpression) Idx1
+#### func (\*DotExpression) Idx1
 
 ```go
 func (self *DotExpression) Idx1() file.Idx
@@ -396,14 +380,13 @@ type EmptyStatement struct {
 }
 ```
 
-
-#### func (*EmptyStatement) Idx0
+#### func (\*EmptyStatement) Idx0
 
 ```go
 func (self *EmptyStatement) Idx0() file.Idx
 ```
 
-#### func (*EmptyStatement) Idx1
+#### func (\*EmptyStatement) Idx1
 
 ```go
 func (self *EmptyStatement) Idx1() file.Idx
@@ -428,14 +411,13 @@ type ExpressionStatement struct {
 }
 ```
 
-
-#### func (*ExpressionStatement) Idx0
+#### func (\*ExpressionStatement) Idx0
 
 ```go
 func (self *ExpressionStatement) Idx0() file.Idx
 ```
 
-#### func (*ExpressionStatement) Idx1
+#### func (\*ExpressionStatement) Idx1
 
 ```go
 func (self *ExpressionStatement) Idx1() file.Idx
@@ -452,14 +434,13 @@ type ForInStatement struct {
 }
 ```
 
-
-#### func (*ForInStatement) Idx0
+#### func (\*ForInStatement) Idx0
 
 ```go
 func (self *ForInStatement) Idx0() file.Idx
 ```
 
-#### func (*ForInStatement) Idx1
+#### func (\*ForInStatement) Idx1
 
 ```go
 func (self *ForInStatement) Idx1() file.Idx
@@ -477,14 +458,13 @@ type ForStatement struct {
 }
 ```
 
-
-#### func (*ForStatement) Idx0
+#### func (\*ForStatement) Idx0
 
 ```go
 func (self *ForStatement) Idx0() file.Idx
 ```
 
-#### func (*ForStatement) Idx1
+#### func (\*ForStatement) Idx1
 
 ```go
 func (self *ForStatement) Idx1() file.Idx
@@ -497,7 +477,6 @@ type FunctionDeclaration struct {
 	Function *FunctionLiteral
 }
 ```
-
 
 #### type FunctionLiteral
 
@@ -513,14 +492,13 @@ type FunctionLiteral struct {
 }
 ```
 
-
-#### func (*FunctionLiteral) Idx0
+#### func (\*FunctionLiteral) Idx0
 
 ```go
 func (self *FunctionLiteral) Idx0() file.Idx
 ```
 
-#### func (*FunctionLiteral) Idx1
+#### func (\*FunctionLiteral) Idx1
 
 ```go
 func (self *FunctionLiteral) Idx1() file.Idx
@@ -535,14 +513,13 @@ type Identifier struct {
 }
 ```
 
-
-#### func (*Identifier) Idx0
+#### func (\*Identifier) Idx0
 
 ```go
 func (self *Identifier) Idx0() file.Idx
 ```
 
-#### func (*Identifier) Idx1
+#### func (\*Identifier) Idx1
 
 ```go
 func (self *Identifier) Idx1() file.Idx
@@ -559,14 +536,13 @@ type IfStatement struct {
 }
 ```
 
-
-#### func (*IfStatement) Idx0
+#### func (\*IfStatement) Idx0
 
 ```go
 func (self *IfStatement) Idx0() file.Idx
 ```
 
-#### func (*IfStatement) Idx1
+#### func (\*IfStatement) Idx1
 
 ```go
 func (self *IfStatement) Idx1() file.Idx
@@ -582,14 +558,13 @@ type LabelledStatement struct {
 }
 ```
 
-
-#### func (*LabelledStatement) Idx0
+#### func (\*LabelledStatement) Idx0
 
 ```go
 func (self *LabelledStatement) Idx0() file.Idx
 ```
 
-#### func (*LabelledStatement) Idx1
+#### func (\*LabelledStatement) Idx1
 
 ```go
 func (self *LabelledStatement) Idx1() file.Idx
@@ -607,14 +582,13 @@ type NewExpression struct {
 }
 ```
 
-
-#### func (*NewExpression) Idx0
+#### func (\*NewExpression) Idx0
 
 ```go
 func (self *NewExpression) Idx0() file.Idx
 ```
 
-#### func (*NewExpression) Idx1
+#### func (\*NewExpression) Idx1
 
 ```go
 func (self *NewExpression) Idx1() file.Idx
@@ -640,14 +614,13 @@ type NullLiteral struct {
 }
 ```
 
-
-#### func (*NullLiteral) Idx0
+#### func (\*NullLiteral) Idx0
 
 ```go
 func (self *NullLiteral) Idx0() file.Idx
 ```
 
-#### func (*NullLiteral) Idx1
+#### func (\*NullLiteral) Idx1
 
 ```go
 func (self *NullLiteral) Idx1() file.Idx
@@ -663,14 +636,13 @@ type NumberLiteral struct {
 }
 ```
 
-
-#### func (*NumberLiteral) Idx0
+#### func (\*NumberLiteral) Idx0
 
 ```go
 func (self *NumberLiteral) Idx0() file.Idx
 ```
 
-#### func (*NumberLiteral) Idx1
+#### func (\*NumberLiteral) Idx1
 
 ```go
 func (self *NumberLiteral) Idx1() file.Idx
@@ -686,14 +658,13 @@ type ObjectLiteral struct {
 }
 ```
 
-
-#### func (*ObjectLiteral) Idx0
+#### func (\*ObjectLiteral) Idx0
 
 ```go
 func (self *ObjectLiteral) Idx0() file.Idx
 ```
 
-#### func (*ObjectLiteral) Idx1
+#### func (\*ObjectLiteral) Idx1
 
 ```go
 func (self *ObjectLiteral) Idx1() file.Idx
@@ -709,7 +680,6 @@ type ParameterList struct {
 }
 ```
 
-
 #### type Program
 
 ```go
@@ -722,14 +692,13 @@ type Program struct {
 }
 ```
 
-
-#### func (*Program) Idx0
+#### func (\*Program) Idx0
 
 ```go
 func (self *Program) Idx0() file.Idx
 ```
 
-#### func (*Program) Idx1
+#### func (\*Program) Idx1
 
 ```go
 func (self *Program) Idx1() file.Idx
@@ -745,7 +714,6 @@ type Property struct {
 }
 ```
 
-
 #### type RegExpLiteral
 
 ```go
@@ -758,14 +726,13 @@ type RegExpLiteral struct {
 }
 ```
 
-
-#### func (*RegExpLiteral) Idx0
+#### func (\*RegExpLiteral) Idx0
 
 ```go
 func (self *RegExpLiteral) Idx0() file.Idx
 ```
 
-#### func (*RegExpLiteral) Idx1
+#### func (\*RegExpLiteral) Idx1
 
 ```go
 func (self *RegExpLiteral) Idx1() file.Idx
@@ -780,14 +747,13 @@ type ReturnStatement struct {
 }
 ```
 
-
-#### func (*ReturnStatement) Idx0
+#### func (\*ReturnStatement) Idx0
 
 ```go
 func (self *ReturnStatement) Idx0() file.Idx
 ```
 
-#### func (*ReturnStatement) Idx1
+#### func (\*ReturnStatement) Idx1
 
 ```go
 func (self *ReturnStatement) Idx1() file.Idx
@@ -801,14 +767,13 @@ type SequenceExpression struct {
 }
 ```
 
-
-#### func (*SequenceExpression) Idx0
+#### func (\*SequenceExpression) Idx0
 
 ```go
 func (self *SequenceExpression) Idx0() file.Idx
 ```
 
-#### func (*SequenceExpression) Idx1
+#### func (\*SequenceExpression) Idx1
 
 ```go
 func (self *SequenceExpression) Idx1() file.Idx
@@ -835,14 +800,13 @@ type StringLiteral struct {
 }
 ```
 
-
-#### func (*StringLiteral) Idx0
+#### func (\*StringLiteral) Idx0
 
 ```go
 func (self *StringLiteral) Idx0() file.Idx
 ```
 
-#### func (*StringLiteral) Idx1
+#### func (\*StringLiteral) Idx1
 
 ```go
 func (self *StringLiteral) Idx1() file.Idx
@@ -859,14 +823,13 @@ type SwitchStatement struct {
 }
 ```
 
-
-#### func (*SwitchStatement) Idx0
+#### func (\*SwitchStatement) Idx0
 
 ```go
 func (self *SwitchStatement) Idx0() file.Idx
 ```
 
-#### func (*SwitchStatement) Idx1
+#### func (\*SwitchStatement) Idx1
 
 ```go
 func (self *SwitchStatement) Idx1() file.Idx
@@ -880,14 +843,13 @@ type ThisExpression struct {
 }
 ```
 
-
-#### func (*ThisExpression) Idx0
+#### func (\*ThisExpression) Idx0
 
 ```go
 func (self *ThisExpression) Idx0() file.Idx
 ```
 
-#### func (*ThisExpression) Idx1
+#### func (\*ThisExpression) Idx1
 
 ```go
 func (self *ThisExpression) Idx1() file.Idx
@@ -902,14 +864,13 @@ type ThrowStatement struct {
 }
 ```
 
-
-#### func (*ThrowStatement) Idx0
+#### func (\*ThrowStatement) Idx0
 
 ```go
 func (self *ThrowStatement) Idx0() file.Idx
 ```
 
-#### func (*ThrowStatement) Idx1
+#### func (\*ThrowStatement) Idx1
 
 ```go
 func (self *ThrowStatement) Idx1() file.Idx
@@ -926,14 +887,13 @@ type TryStatement struct {
 }
 ```
 
-
-#### func (*TryStatement) Idx0
+#### func (\*TryStatement) Idx0
 
 ```go
 func (self *TryStatement) Idx0() file.Idx
 ```
 
-#### func (*TryStatement) Idx1
+#### func (\*TryStatement) Idx1
 
 ```go
 func (self *TryStatement) Idx1() file.Idx
@@ -950,14 +910,13 @@ type UnaryExpression struct {
 }
 ```
 
-
-#### func (*UnaryExpression) Idx0
+#### func (\*UnaryExpression) Idx0
 
 ```go
 func (self *UnaryExpression) Idx0() file.Idx
 ```
 
-#### func (*UnaryExpression) Idx1
+#### func (\*UnaryExpression) Idx1
 
 ```go
 func (self *UnaryExpression) Idx1() file.Idx
@@ -972,7 +931,6 @@ type VariableDeclaration struct {
 }
 ```
 
-
 #### type VariableExpression
 
 ```go
@@ -983,14 +941,13 @@ type VariableExpression struct {
 }
 ```
 
-
-#### func (*VariableExpression) Idx0
+#### func (\*VariableExpression) Idx0
 
 ```go
 func (self *VariableExpression) Idx0() file.Idx
 ```
 
-#### func (*VariableExpression) Idx1
+#### func (\*VariableExpression) Idx1
 
 ```go
 func (self *VariableExpression) Idx1() file.Idx
@@ -1005,14 +962,13 @@ type VariableStatement struct {
 }
 ```
 
-
-#### func (*VariableStatement) Idx0
+#### func (\*VariableStatement) Idx0
 
 ```go
 func (self *VariableStatement) Idx0() file.Idx
 ```
 
-#### func (*VariableStatement) Idx1
+#### func (\*VariableStatement) Idx1
 
 ```go
 func (self *VariableStatement) Idx1() file.Idx
@@ -1028,14 +984,13 @@ type WhileStatement struct {
 }
 ```
 
-
-#### func (*WhileStatement) Idx0
+#### func (\*WhileStatement) Idx0
 
 ```go
 func (self *WhileStatement) Idx0() file.Idx
 ```
 
-#### func (*WhileStatement) Idx1
+#### func (\*WhileStatement) Idx1
 
 ```go
 func (self *WhileStatement) Idx1() file.Idx
@@ -1051,14 +1006,13 @@ type WithStatement struct {
 }
 ```
 
-
-#### func (*WithStatement) Idx0
+#### func (\*WithStatement) Idx0
 
 ```go
 func (self *WithStatement) Idx0() file.Idx
 ```
 
-#### func (*WithStatement) Idx1
+#### func (\*WithStatement) Idx1
 
 ```go
 func (self *WithStatement) Idx1() file.Idx

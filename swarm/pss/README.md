@@ -4,17 +4,17 @@
 
 ### CONTENTS
 
-* Status of this document
-* Core concepts
-* Caveat
-* Examples
-* API
-  * Retrieve node information
-  * Receive messages
-  * Send messages using public key encryption
-  * Send messages using symmetric encryption
-  * Querying peer keys
-  * Handshakes
+- Status of this document
+- Core concepts
+- Caveat
+- Examples
+- API
+  - Retrieve node information
+  - Receive messages
+  - Send messages using public key encryption
+  - Send messages using symmetric encryption
+  - Querying peer keys
+  - Handshakes
 
 ### STATUS OF THIS DOCUMENT
 
@@ -28,9 +28,9 @@ Please refer to [ARCHITECTURE.md](ARCHITECTURE.md) for in-depth topics concernin
 
 Three things are required to send a `pss` message:
 
-1. Encryption key
-2. Topic
-3. Message payload
+1.  Encryption key
+2.  Topic
+3.  Message payload
 
 Encryption key can be a public key or a 32 byte symmetric key. It must be coupled with a peer address in the node prior to sending.
 
@@ -40,13 +40,13 @@ Message payload is an arbitrary byte slice of data.
 
 Upon sending the message it is encrypted and passed on from peer to peer. Any node along the route that can successfully decrypt the message is regarded as a recipient. Recipients continue to pass on the message to their peers, to make traffic analysis attacks more difficult.
 
-The Address that is coupled with the encryption keys are used for routing the message. This does *not* need to be a full addresses; the network will route the message to the best of its ability with the information that is available. If *no* address is given (zero-length byte slice), routing is effectively deactivated, and the message is passed to all peers by all peers.
+The Address that is coupled with the encryption keys are used for routing the message. This does _not_ need to be a full addresses; the network will route the message to the best of its ability with the information that is available. If _no_ address is given (zero-length byte slice), routing is effectively deactivated, and the message is passed to all peers by all peers.
 
 ## CAVEAT
 
 `pss` connectivity resembles UDP. This means there is no delivery guarantee for a message. Furthermore there is no strict definition of what a connection between two nodes communicating via `pss` is. Reception acknowledgements and keepalive-schemes is the responsibility of the application.
 
-Due to the inherent properties of the `swarm` routing algorithm, a node may receive the same message more than once. Message deduplication *cannot be guaranteed* by `pss`, and must be handled in the application layer to ensure predictable results.
+Due to the inherent properties of the `swarm` routing algorithm, a node may receive the same message more than once. Message deduplication _cannot be guaranteed_ by `pss`, and must be handled in the application layer to ensure predictable results.
 
 ## EXAMPLES
 
@@ -143,7 +143,7 @@ none
 
 #### pss_sendAsym
 
-Encrypts the message using the provided public key, and signs it using the node's private key. It then wraps it in an envelope containing the topic, and sends it to the network. 
+Encrypts the message using the provided public key, and signs it using the node's private key. It then wraps it in an envelope containing the topic, and sends it to the network.
 
 ```
 parameters:
@@ -161,7 +161,7 @@ none
 
 Register a symmetric key shared with a peer. This is done once for every topic that will be used with the peer. Address can be anything from 0 to 32 bytes inclusive of the peer's swarm overlay address.
 
-If the fourth parameter is false, the key will *not* be added to the list of symmetric keys used for decryption attempts.
+If the fourth parameter is false, the key will _not_ be added to the list of symmetric keys used for decryption attempts.
 
 ```
 parameters:
@@ -220,7 +220,7 @@ returns:
 
 Convenience implementation of Diffie-Hellman handshakes using ephemeral symmetric keys. Peers keep separate sets of keys for incoming and outgoing communications.
 
-*This functionality is an optional feature in `pss`. It is compiled in by default, but can be omitted by providing the `nopsshandshake` build tag.*
+_This functionality is an optional feature in `pss`. It is compiled in by default, but can be omitted by providing the `nopsshandshake` build tag._
 
 #### pss_addHandshake
 
@@ -268,13 +268,15 @@ returns:
 Get valid symmetric encryption keys for a specified peer and topic.
 
 parameters:
-1. public key of peer in hex format (string)
-2. topic (4 bytes in hex)
-3. include keys for incoming messages (bool)
-4. include keys for outgoing messages (bool)
+
+1.  public key of peer in hex format (string)
+2.  topic (4 bytes in hex)
+3.  include keys for incoming messages (bool)
+4.  include keys for outgoing messages (bool)
 
 returns:
-1. list of symmetric keys (string[])
+
+1.  list of symmetric keys (string[])
 
 #### pss_getHandshakeKeyCapacity
 

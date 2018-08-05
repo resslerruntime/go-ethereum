@@ -12,15 +12,15 @@ A Go client library written and maintained by the **InfluxDB** team.
 This package provides convenience functions to read and write time series data.
 It uses the HTTP protocol to communicate with your **InfluxDB** cluster.
 
-
 ## Getting Started
 
 ### Connecting To Your Database
 
 Connecting to an **InfluxDB** database is straightforward. You will need a host
 name, a port and the cluster user credentials if applicable. The default port is
+
 8086. You can customize these settings to your specific installation via the
-**InfluxDB** configuration file.
+      **InfluxDB** configuration file.
 
 Though not necessary for experimentation, you may want to create a new user
 and authenticate the connection to your database.
@@ -101,14 +101,13 @@ func main() {
 		log.Fatal(err)
 	}
 }
-
 ```
 
 ### Inserting Data
 
-Time series data aka *points* are written to the database using batch inserts.
+Time series data aka _points_ are written to the database using batch inserts.
 The mechanism is to create one or more points and then create a batch aka
-*batch points* and write these to a given database and series. A series is a
+_batch points_ and write these to a given database and series. A series is a
 combination of a measurement (time/values) and a set of tags.
 
 In this sample we will create a batch of a 1,000 points. Each point has a time and
@@ -119,7 +118,6 @@ NOTE: You can specify a RetentionPolicy as part of the batch points. If not
 provided InfluxDB will use the database _default_ retention policy.
 
 ```go
-
 func writePoints(clnt client.Client) {
 	sampleSize := 1000
 
@@ -248,7 +246,7 @@ func WriteUDP() {
 	if err != nil {
 		panic(err.Error())
 	}
-	
+
 	// Create a new point batch
 	bp, _ := client.NewBatchPoints(client.BatchPointsConfig{
 		Precision: "s",
@@ -278,17 +276,17 @@ The UDP client now supports splitting single points that exceed the configured
 payload size. The logic for processing each point is listed here, starting with
 an empty payload.
 
-1. If adding the point to the current (non-empty) payload would exceed the
-   configured size, send the current payload. Otherwise, add it to the current
-   payload.
-1. If the point is smaller than the configured size, add it to the payload.
-1. If the point has no timestamp, just try to send the entire point as a single
-   UDP payload, and process the next point.
-1. Since the point has a timestamp, re-use the existing measurement name,
-   tagset, and timestamp and create multiple new points by splitting up the
-   fields. The per-point length will be kept close to the configured size,
-   staying under it if possible. This does mean that one large field, maybe a
-   long string, could be sent as a larger-than-configured payload.
+1.  If adding the point to the current (non-empty) payload would exceed the
+    configured size, send the current payload. Otherwise, add it to the current
+    payload.
+1.  If the point is smaller than the configured size, add it to the payload.
+1.  If the point has no timestamp, just try to send the entire point as a single
+    UDP payload, and process the next point.
+1.  Since the point has a timestamp, re-use the existing measurement name,
+    tagset, and timestamp and create multiple new points by splitting up the
+    fields. The per-point length will be kept close to the configured size,
+    staying under it if possible. This does mean that one large field, maybe a
+    long string, could be sent as a larger-than-configured payload.
 
 The above logic attempts to respect configured payload sizes, but not sacrifice
 any data integrity. Points without a timestamp can't be split, as that may

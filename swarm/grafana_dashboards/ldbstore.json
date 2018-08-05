@@ -72,21 +72,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -98,9 +92,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -196,21 +188,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -222,9 +208,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -320,21 +304,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -346,9 +324,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -444,25 +420,20 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
-              "measurement": "swarm.localstore.getorcreaterequest.errfetching.count",
+              "measurement":
+                "swarm.localstore.getorcreaterequest.errfetching.count",
               "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
@@ -470,9 +441,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -568,21 +537,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -594,9 +557,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -692,21 +653,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -718,9 +673,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -816,21 +769,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -842,9 +789,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -940,21 +885,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -966,9 +905,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -1081,21 +1018,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1107,9 +1038,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -1205,21 +1134,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1231,9 +1154,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -1329,21 +1250,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1355,9 +1270,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -1453,21 +1366,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1479,9 +1386,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -1577,21 +1482,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1603,9 +1502,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -1701,21 +1598,15 @@
           "alias": "$tag_host",
           "groupBy": [
             {
-              "params": [
-                "$myinterval"
-              ],
+              "params": ["$myinterval"],
               "type": "time"
             },
             {
-              "params": [
-                "host"
-              ],
+              "params": ["host"],
               "type": "tag"
             },
             {
-              "params": [
-                "0"
-              ],
+              "params": ["0"],
               "type": "fill"
             }
           ],
@@ -1727,9 +1618,7 @@
           "select": [
             [
               {
-                "params": [
-                  "value"
-                ],
+                "params": ["value"],
                 "type": "field"
               },
               {
@@ -1835,21 +1724,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1861,9 +1744,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -1959,21 +1840,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -1985,9 +1860,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -2083,21 +1956,15 @@
               "alias": "$tag_host",
               "groupBy": [
                 {
-                  "params": [
-                    "$myinterval"
-                  ],
+                  "params": ["$myinterval"],
                   "type": "time"
                 },
                 {
-                  "params": [
-                    "host"
-                  ],
+                  "params": ["host"],
                   "type": "tag"
                 },
                 {
-                  "params": [
-                    "0"
-                  ],
+                  "params": ["0"],
                   "type": "fill"
                 }
               ],
@@ -2109,9 +1976,7 @@
               "select": [
                 [
                   {
-                    "params": [
-                      "value"
-                    ],
+                    "params": ["value"],
                     "type": "field"
                   },
                   {
@@ -2217,11 +2082,7 @@
         "allValue": null,
         "current": {
           "text": "swarm_30399 + swarm_30400 + swarm_30401",
-          "value": [
-            "swarm_30399",
-            "swarm_30400",
-            "swarm_30401"
-          ]
+          "value": ["swarm_30399", "swarm_30400", "swarm_30401"]
         },
         "datasource": "metrics",
         "hide": 0,
@@ -2259,17 +2120,7 @@
       "2h",
       "1d"
     ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
+    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
   },
   "timezone": "",
   "title": "LDBStore and LDBDatabase",

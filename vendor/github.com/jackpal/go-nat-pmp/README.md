@@ -1,5 +1,4 @@
-go-nat-pmp
-==========
+# go-nat-pmp
 
 A Go language client for the NAT-PMP internet protocol for port mapping and discovering the external
 IP address of a firewall.
@@ -8,16 +7,13 @@ NAT-PMP is supported by Apple brand routers and open source routers like Tomato 
 
 See http://tools.ietf.org/html/draft-cheshire-nat-pmp-03
 
-
 [![Build Status](https://travis-ci.org/jackpal/go-nat-pmp.svg)](https://travis-ci.org/jackpal/go-nat-pmp)
 
-Get the package
----------------
+## Get the package
 
     go get -u github.com/jackpal/go-nat-pmp
 
-Usage
------
+## Usage
 
     import (
         "github.com/jackpal/gateway"
@@ -36,17 +32,14 @@ Usage
     }
     print("External IP address:", response.ExternalIPAddress)
 
-Clients
--------
+## Clients
 
 This library is used in the Taipei Torrent BitTorrent client http://github.com/jackpal/Taipei-Torrent
 
-Complete documentation
-----------------------
+## Complete documentation
 
     http://godoc.org/github.com/jackpal/go-nat-pmp
 
-License
--------
+## License
 
 This project is licensed under the Apache License 2.0.

@@ -7,7 +7,6 @@ Swarm is a distributed storage platform and content distribution service, a nati
 [![Travis](https://travis-ci.org/ethereum/go-ethereum.svg?branch=master)](https://travis-ci.org/ethereum/go-ethereum)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethersphere/orange-lounge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-
 ## Building the source
 
 Building Swarm requires Go (version 1.10 or later).
@@ -16,11 +15,9 @@ Building Swarm requires Go (version 1.10 or later).
 
     go install github.com/ethereum/go-ethereum/cmd/swarm
 
-
 ## Documentation
 
 Swarm documentation can be found at [https://swarm-guide.readthedocs.io](https://swarm-guide.readthedocs.io).
-
 
 ## Contribution
 
@@ -36,13 +33,12 @@ procedures quick and simple.
 
 Please make sure your contributions adhere to our coding guidelines:
 
- * Code must adhere to the official Go [formatting](https://golang.org/doc/effective_go.html#formatting) guidelines (i.e. uses [gofmt](https://golang.org/cmd/gofmt/)).
- * Code must be documented adhering to the official Go [commentary](https://golang.org/doc/effective_go.html#commentary) guidelines.
- * Pull requests need to be based on and opened against the `master` branch.
- * [Code review guidelines](https://github.com/ethereum/go-ethereum/wiki/Code-Review-Guidelines).
- * Commit messages should be prefixed with the package(s) they modify.
-   * E.g. "swarm/fuse: ignore default manifest entry"
-
+- Code must adhere to the official Go [formatting](https://golang.org/doc/effective_go.html#formatting) guidelines (i.e. uses [gofmt](https://golang.org/cmd/gofmt/)).
+- Code must be documented adhering to the official Go [commentary](https://golang.org/doc/effective_go.html#commentary) guidelines.
+- Pull requests need to be based on and opened against the `master` branch.
+- [Code review guidelines](https://github.com/ethereum/go-ethereum/wiki/Code-Review-Guidelines).
+- Commit messages should be prefixed with the package(s) they modify.
+  - E.g. "swarm/fuse: ignore default manifest entry"
 
 ## License
 

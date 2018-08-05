@@ -2,7 +2,7 @@
 
 ## areflect
 
-Helper functions to work with the `reflect` package.  Contains
+Helper functions to work with the `reflect` package. Contains
 `ForceExport()`, which bypasses the check in `reflect.Value` that
 prevents accessing unexported attributes.
 
@@ -33,6 +33,7 @@ As a result, we frequently use `map[key.Key]interface{}` instead of just
 `map[interface{}]interface{}` when we need a generic key-value collection.
 
 ## lanz
+
 A client for [LANZ](https://eos.arista.com/latency-analyzer-lanz-architectures-and-configuration/)
 streaming servers. It connects to a LANZ streaming server,
 listens for notifications, decodes them and sends the LANZ protobuf on the

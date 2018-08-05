@@ -6,9 +6,9 @@ This document aims to explain the changes in https://github.com/ethersphere/go-e
 
 When running the TestNetwork test, execution sometimes:
 
-* deadlocks
-* panics
-* failures with wrong result, such as:
+- deadlocks
+- panics
+- failures with wrong result, such as:
 
 ```
 $ go test -v ./swarm/pss -cpu 4 -run TestNetwork
@@ -98,26 +98,28 @@ const (
 #### 3. Deadlocks
 
 Deadlocks are triggered when using:
-* `sim` adapter - synchronous, unbuffered channel
-* `sock` adapter - asynchronous, buffered channel (when using a 1K buffer)
+
+- `sim` adapter - synchronous, unbuffered channel
+- `sock` adapter - asynchronous, buffered channel (when using a 1K buffer)
 
 No deadlocks were triggered when using:
-* `tcp` adapter - asynchronous, buffered channel
-* `exec` adapter - asynchronous, buffered channel
+
+- `tcp` adapter - asynchronous, buffered channel
+- `exec` adapter - asynchronous, buffered channel
 
 Ultimately the deadlocks happen due to blocking `pp.Send()` call at:
 
- 		 // attempt to send the message
-  		err := pp.Send(msg)
-  		if err != nil {
-  			log.Debug(fmt.Sprintf("%v: failed forwarding: %v", sendMsg, err))
-  			return true
-  		}
+// attempt to send the message
+err := pp.Send(msg)
+if err != nil {
+log.Debug(fmt.Sprintf("%v: failed forwarding: %v", sendMsg, err))
+return true
+}
 
- `p2p` request handling is synchronous (as discussed at https://github.com/ethersphere/go-ethereum/issues/130), `pss` is also synchronous, therefore if two nodes happen to be processing a request, while at the same time waiting for response on `pp.Send(msg)`, deadlock occurs.
- 
- `pp.Send(msg)` is only blocking when the underlying adapter is blocking (read `sim` or `sock`) or the buffer of the connection is full.
- 
+`p2p` request handling is synchronous (as discussed at https://github.com/ethersphere/go-ethereum/issues/130), `pss` is also synchronous, therefore if two nodes happen to be processing a request, while at the same time waiting for response on `pp.Send(msg)`, deadlock occurs.
+
+`pp.Send(msg)` is only blocking when the underlying adapter is blocking (read `sim` or `sock`) or the buffer of the connection is full.
+
 ##### Current solution
 
 Make no assumption on the undelying connection, and call `pp.Send` asynchronously in a go-routine.
