@@ -14,7 +14,6 @@ The exceptions are listed [here](https://github.com/olebedev/go-duktape/blob/mas
 The package is fully go-getable, no need to install any external C libraries.  
 So, just type `go get gopkg.in/olebedev/go-duktape.v3` to install.
 
-
 ```go
 package main
 
@@ -37,6 +36,7 @@ func main() {
 
 Bindings between Go and Javascript contexts are not fully functional.
 However, binding a Go function to the Javascript context is available:
+
 ```go
 package main
 
@@ -52,7 +52,9 @@ func main() {
   ctx.PevalString(`log('Go lang Go!')`)
 }
 ```
+
 then run it.
+
 ```bash
 $ go run *.go
 Go lang Go!
@@ -62,6 +64,7 @@ $
 ### Timers
 
 There is a method to inject timers to the global scope:
+
 ```go
 package main
 
@@ -87,7 +90,9 @@ func main() {
   fmt.Println(<-ch)
 }
 ```
+
 then run it
+
 ```bash
 $ go run *.go
 first step
@@ -103,13 +108,14 @@ Install `go get gopkg.in/olebedev/go-duktape.v3/...`.
 Execute file.js: `$GOPATH/bin/go-duk file.js`.
 
 ### Benchmarks
-| prog        | time  |
-| ------------|-------|
-|[otto](https://github.com/robertkrimen/otto)|200.13s|
-|[anko](https://github.com/mattn/anko)|231.19s|
-|[agora](https://github.com/PuerkitoBio/agora/)|149.33s|
-|[GopherLua](https://github.com/yuin/gopher-lua/)|8.39s|
-|**go-duktape**|**9.80s**|
+
+| prog                                             | time      |
+| ------------------------------------------------ | --------- |
+| [otto](https://github.com/robertkrimen/otto)     | 200.13s   |
+| [anko](https://github.com/mattn/anko)            | 231.19s   |
+| [agora](https://github.com/PuerkitoBio/agora/)   | 149.33s   |
+| [GopherLua](https://github.com/yuin/gopher-lua/) | 8.39s     |
+| **go-duktape**                                   | **9.80s** |
 
 More details are [here](https://github.com/olebedev/go-duktape/wiki/Benchmarks).
 
@@ -117,8 +123,7 @@ More details are [here](https://github.com/olebedev/go-duktape/wiki/Benchmarks).
 
 The package is not fully tested, so be careful.
 
-
 ### Contribution
 
 Pull requests are welcome! Also, if you want to discuss something send a pull request with proposal and changes.
-__Convention:__ fork the repository and make changes on your fork in a feature branch.
+**Convention:** fork the repository and make changes on your fork in a feature branch.

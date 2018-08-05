@@ -121,13 +121,13 @@ Here is a list of `net/context` aware middleware handlers implementing `xhandler
 
 Feel free to put up a PR linking your middleware if you have built one:
 
-| Middleware | Author | Description |
-| ---------- | ------ | ----------- |
-| [xmux](https://github.com/rs/xmux) | [Olivier Poitrey](https://github.com/rs) | HTTP request muxer |
-| [xlog](https://github.com/rs/xlog) | [Olivier Poitrey](https://github.com/rs) | HTTP handler logger |
-| [xstats](https://github.com/rs/xstats) | [Olivier Poitrey](https://github.com/rs) | A generic client for service instrumentation |
+| Middleware                               | Author                                   | Description                                                                                                   |
+| ---------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [xmux](https://github.com/rs/xmux)       | [Olivier Poitrey](https://github.com/rs) | HTTP request muxer                                                                                            |
+| [xlog](https://github.com/rs/xlog)       | [Olivier Poitrey](https://github.com/rs) | HTTP handler logger                                                                                           |
+| [xstats](https://github.com/rs/xstats)   | [Olivier Poitrey](https://github.com/rs) | A generic client for service instrumentation                                                                  |
 | [xaccess](https://github.com/rs/xaccess) | [Olivier Poitrey](https://github.com/rs) | HTTP handler access logger with [xlog](https://github.com/rs/xlog) and [xstats](https://github.com/rs/xstats) |
-| [cors](https://github.com/rs/cors) | [Olivier Poitrey](https://github.com/rs) | [Cross Origin Resource Sharing](http://www.w3.org/TR/cors/) (CORS) support |
+| [cors](https://github.com/rs/cors)       | [Olivier Poitrey](https://github.com/rs) | [Cross Origin Resource Sharing](http://www.w3.org/TR/cors/) (CORS) support                                    |
 
 ## Licenses
 

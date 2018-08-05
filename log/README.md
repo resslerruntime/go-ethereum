@@ -5,6 +5,7 @@
 Package log15 provides an opinionated, simple toolkit for best-practice logging in Go (golang) that is both human and machine readable. It is modeled after the Go standard library's [`io`](http://golang.org/pkg/io/) and [`net/http`](http://golang.org/pkg/net/http/) packages and is an alternative to the standard library's [`log`](http://golang.org/pkg/log/) package.
 
 ## Features
+
 - A simple, easy-to-understand API
 - Promotes structured logging by encouraging use of key/value pairs
 - Child loggers which inherit and add their own private context
@@ -15,6 +16,7 @@ Package log15 provides an opinionated, simple toolkit for best-practice logging 
 - Support for forking records to multiple handlers, buffering records for output, failing over from failed handler writes, + more
 
 ## Versioning
+
 The API of the master branch of log15 should always be considered unstable. If you want to rely on a stable API,
 you must vendor the library.
 
@@ -56,6 +58,7 @@ INFO[06-17|21:58:10] connection open                          module=app/server 
 ```
 
 ## Breaking API Changes
+
 The following commits broke API stability. This reference is intended to help you understand the consequences of updating to a newer version
 of log15.
 
@@ -66,6 +69,7 @@ of log15.
 ## FAQ
 
 ### The varargs style is brittle and error prone! Can I have type safety please?
+
 Yes. Use `log.Ctx`:
 
 ```go
@@ -74,4 +78,5 @@ srvlog.Warn("abnormal conn rate", log.Ctx{"rate": curRate, "low": lowRate, "high
 ```
 
 ## License
+
 Apache

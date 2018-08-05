@@ -1,5 +1,4 @@
-mmap-go
-=======
+# mmap-go
 
 mmap-go is a portable mmap package for the [Go programming language](http://golang.org).
 It has been tested on Linux (386, amd64), OS X, and Windows (386). It should also

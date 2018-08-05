@@ -172,16 +172,16 @@ type Config struct {
 
 All types that can be used are following:
 
-* int8 (from `-128` to `127`)
-* int16 (from `-32768` to `32767`)
-* int32 (from `-2147483648` to `2147483647`)
-* int64 (from `-9223372036854775808` to `9223372036854775807`)
-* int (same as `int32` on 32bit environment, or `int64` on 64bit environment)
-* uint8 (from `0` to `255`)
-* uint16 (from `0` to `65535`)
-* uint32 (from `0` to `4294967295`)
-* uint64 (from `0` to `18446744073709551615`)
-* uint (same as `uint` on 32bit environment, or `uint64` on 64bit environment)
+- int8 (from `-128` to `127`)
+- int16 (from `-32768` to `32767`)
+- int32 (from `-2147483648` to `2147483647`)
+- int64 (from `-9223372036854775808` to `9223372036854775807`)
+- int (same as `int32` on 32bit environment, or `int64` on 64bit environment)
+- uint8 (from `0` to `255`)
+- uint16 (from `0` to `65535`)
+- uint32 (from `0` to `4294967295`)
+- uint64 (from `0` to `18446744073709551615`)
+- uint (same as `uint` on 32bit environment, or `uint64` on 64bit environment)
 
 ### Float
 
@@ -197,8 +197,8 @@ type Config struct {
 
 All types that can be used are following:
 
-* float32
-* float64
+- float32
+- float64
 
 ### Boolean
 
@@ -363,6 +363,7 @@ type ConfigWithDuration struct {
     Duration Duration
 }
 ```
+
 ### Using the `toml.UnmarshalerRec` interface
 
 You can also override marshaling rules specifically for TOML using the `UnmarshalerRec`

@@ -29,16 +29,16 @@ sending intermediate chunks.
 
 Using the streamer logic, various stream types are easy to implement:
 
-* light node requests:
-  * url lookup with offset
-  * document download
-  * document upload
-* syncing
-  * live session syncing
-  * historical syncing
-* simple retrieve requests and deliveries
-* mutable resource updates streams
-* receipting for finger pointing
+- light node requests:
+  - url lookup with offset
+  - document download
+  - document upload
+- syncing
+  - live session syncing
+  - historical syncing
+- simple retrieve requests and deliveries
+- mutable resource updates streams
+- receipting for finger pointing
 
 ## Syncing
 
@@ -48,14 +48,14 @@ Syncing is the process that makes sure storer nodes end up storing all and only 
 
 - eventual consistency: so each chunk historical should be syncable
 - since the same chunk can and will arrive from many peers, (network traffic should be
-optimised, only one transfer of data per chunk)
+  optimised, only one transfer of data per chunk)
 - explicit request deliveries should be prioritised higher than recent chunks received
-during the ongoing session which in turn should be higher than historical chunks.
+  during the ongoing session which in turn should be higher than historical chunks.
 - insured chunks should get receipted for finger pointing litigation, the receipts storage
-should be organised efficiently, upstream peer should also be able to find these
-receipts for a deleted chunk easily to refute their challenge.
+  should be organised efficiently, upstream peer should also be able to find these
+  receipts for a deleted chunk easily to refute their challenge.
 - syncing should be resilient to cut connections, metadata should be persisted that
-keep track of syncing state across sessions, historical syncing state should survive restart
+  keep track of syncing state across sessions, historical syncing state should survive restart
 - extra data structures to support syncing should be kept at minimum
 - syncing is organized separately for chunk types (resource update v content chunk)
 - various types of streams should have common logic abstracted
@@ -117,10 +117,9 @@ Simple request is also a subscribe
 different streaming protocols are different p2p protocols with same message types.
 the constructor is the Run function itself. which takes a streamerpeer as argument
 
-
 ### provable streams
 
-The swarm  hash over the hash stream has many advantages. It implements a provable data transfer
+The swarm hash over the hash stream has many advantages. It implements a provable data transfer
 and provide efficient storage for receipts in the form of inclusion proofs useable for finger pointing litigation.
 When challenged on a missing chunk, upstream peer will provide an inclusion proof of a chunk hash against the state of the
 sync stream. In order to be able to generate such an inclusion proof, upstream peer needs to store the hash index (counting consecutive hash-size segments) alongside the chunk data and preserve it even when the chunk data is deleted until the chunk is no longer insured.
@@ -135,7 +134,7 @@ For this the check of a state should be exhaustive. If historical syncing finish
 surprises. In other words historical syncing this process is self verifying. With session syncing however, it is not enough to check going back covering the range from old offset to new. Continuity (i.e., that the new state is extension of the old) needs to be verified: after downstream peer reads the range into a buffer, it appends the buffer the last known state at the last known offset and verifies the resulting hash matches
 the latest state. Past intervals of historical syncing are checked via the the session root.
 Upstream peer signs the states, downstream peers can use as handover proofs.
-Downstream  peers sign off on a state together with an initial offset.
+Downstream peers sign off on a state together with an initial offset.
 
 Once historical syncing is complete and the session does not lag, downstream peer only preserves the latest upstream state and store the signed version.
 

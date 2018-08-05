@@ -10,13 +10,13 @@ Now version v2 has arrived! It brings new event system, new theme system, new `B
 
 `master` mirrors v2 branch, to install:
 
-	go get -u github.com/gizak/termui
+    go get -u github.com/gizak/termui
 
 It is recommanded to use locked deps by using [glide](https://glide.sh): move to `termui` src directory then run `glide up`.
 
 For the compatible reason, you can choose to install the legacy version of `termui`:
 
-	go get gopkg.in/gizak/termui.v1
+    go get gopkg.in/gizak/termui.v1
 
 ## Usage
 
@@ -24,11 +24,11 @@ For the compatible reason, you can choose to install the legacy version of `term
 
 To use `termui`, the very first thing you may want to know is how to manage layout. `termui` offers two ways of doing this, known as absolute layout and grid layout.
 
-__Absolute layout__
+**Absolute layout**
 
 Each widget has an underlying block structure which basically is a box model. It has border, label and padding properties. A border of a widget can be chosen to hide or display (with its border label), you can pick a different front/back colour for the border as well. To display such a widget at a specific location in terminal window, you need to assign `.X`, `.Y`, `.Height`, `.Width` values for each widget before sending it to `.Render`. Let's demonstrate these by a code snippet:
 
-`````go
+```go
 	import ui "github.com/gizak/termui" // <- ui shortcut, optional
 
 	func main() {
@@ -59,11 +59,11 @@ Each widget has an underlying block structure which basically is a box model. It
 
 		// event handler...
 	}
-`````
+```
 
 Note that components can be overlapped (I'd rather call this a feature...), `Render(rs ...Renderer)` renders its args from left to right (i.e. each component's weight is arising from left to right).
 
-__Grid layout:__
+**Grid layout:**
 
 <img src="./_example/grid.gif" alt="grid" width="60%">
 
@@ -148,4 +148,5 @@ Click image to see the corresponding demo codes.
 ## Changelog
 
 ## License
+
 This library is under the [MIT License](http://opensource.org/licenses/MIT)

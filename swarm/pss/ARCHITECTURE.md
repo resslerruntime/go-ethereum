@@ -5,7 +5,7 @@ Pss provides devp2p functionality for swarm nodes without the need for a direct 
 Messages are encapsulated in a devp2p message structure `PssMsg`. These capsules are forwarded from node to node using ordinary tcp devp2p until they reach their destination: The node or nodes who can successfully decrypt the message.
 
 | Layer     | Contents        |
-|-----------|-----------------|
+| --------- | --------------- |
 | PssMsg:   | Address, Expiry |
 | Envelope: | Topic           |
 | Payload:  | e(data)         |
@@ -26,7 +26,7 @@ Feel free to ask questions in https://gitter.im/ethersphere/pss
 
 ## CORE INTERFACES
 
-The pss core provides low level control of key handling and message exchange. 
+The pss core provides low level control of key handling and message exchange.
 
 ### TOPICS
 
@@ -48,16 +48,15 @@ A "connection" in pss is a purely virtual construct. There is no mechanisms in p
 
 Since pss itself never requires a confirmation from a peer of whether a message is received or not, one could argue that pss shows `UDP`-like behavior.
 
-It is also important to note that if the wrong (partial) address is set for a particular key/topic combination, the message may never reach that peer. The further left in the address byte slice the error lies, the less likely it is that delivery will occur. 
-
+It is also important to note that if the wrong (partial) address is set for a particular key/topic combination, the message may never reach that peer. The further left in the address byte slice the error lies, the less likely it is that delivery will occur.
 
 ### EXCHANGE
 
-Message exchange in `pss` *requires* end-to-end encryption. 
+Message exchange in `pss` _requires_ end-to-end encryption.
 
 The API methods `pss_sendSym` and `pss_sendAsym` sends an arbitrary byte slice with a specific topic to a pss peer using the respective encryption scheme. The key passed to the send method must be associated with a topic in the pss key store prior to sending, or the send method will fail.
 
-Return values from the send methods do *not* indicate whether the message was successfully delivered to the pss peer. It *only* indicates whether or not the message could be passed on to the network. If the message could not be forwarded to any peers, the method will fail.
+Return values from the send methods do _not_ indicate whether the message was successfully delivered to the pss peer. It _only_ indicates whether or not the message could be passed on to the network. If the message could not be forwarded to any peers, the method will fail.
 
 Keep in mind that symmetric encryption is less resource-intensive than asymmetric encryption. The former should be used for nodes with high message volumes.
 
@@ -79,7 +78,7 @@ The `Protocol` convenience structure is provided to mimic devp2p-type protocols 
 
 In order to message a peer using this layer, a `Protocol` object must first be instantiated. When this is done, peers can be added using the protocol's `AddPeer()` method. The peer's key/topic combination must be in the pss key store before the peer can be aded.
 
-Adding a peer in effect "runs" the protocol on that peer, and adds an internal mapping between a topic and that peer, and enables sending and receiving messages using the usual io-construct of devp2p. It does not actually *transmit* anything to the peer, it merely represents the node's opinion that a connection with the peer exists. (See CONNECTION above).
+Adding a peer in effect "runs" the protocol on that peer, and adds an internal mapping between a topic and that peer, and enables sending and receiving messages using the usual io-construct of devp2p. It does not actually _transmit_ anything to the peer, it merely represents the node's opinion that a connection with the peer exists. (See CONNECTION above).
 
 #### INCOMING CONNECTIONS
 
@@ -89,7 +88,7 @@ An incoming connection is nothing more than an actual PssMsg appearing with a ce
 
 - The pss node never received a PssMsg from this remote peer with this specific Topic before.
 
-If it is a "new" connection, the protocol will be "run" on the remote peer, as if the peer was added via the API. 
+If it is a "new" connection, the protocol will be "run" on the remote peer, as if the peer was added via the API.
 
 As with the `AddPeer()` method, the key/topic of the originating peer must exist in the pss key store.
 
@@ -111,13 +110,13 @@ When processing an incoming message, `pss` detects whether it is encrypted symme
 
 When decrypting symmetrically, `pss` iterates through all stored keys, and attempts to decrypt with each key in order.
 
-pss keeps a *cache* of these keys. The cache will only store a certain amount of keys, and the iterator will return keys in the order of most recently used key first. Abandoned keys will be garbage collected.
+pss keeps a _cache_ of these keys. The cache will only store a certain amount of keys, and the iterator will return keys in the order of most recently used key first. Abandoned keys will be garbage collected.
 
-### ROUTING 
+### ROUTING
 
 (please refer to swarm kademlia routing for an explanation of the routing algorithm used for pss)
 
-`pss` uses *address hinting* for routing. The address hint is an arbitrary-length MSB byte slice of the peer's swarm overlay address. It can be the whole address, part of the address, or even an empty byte slice. The slice will be matched to the MSB slice of the same length of all devp2p peers in the routing stage.
+`pss` uses _address hinting_ for routing. The address hint is an arbitrary-length MSB byte slice of the peer's swarm overlay address. It can be the whole address, part of the address, or even an empty byte slice. The slice will be matched to the MSB slice of the same length of all devp2p peers in the routing stage.
 
 If an empty byte slice is passed, all devp2p peers will match the address hint, and the message will be forwarded to everyone. This is equivalent to `whisper` routing, and makes it difficult to perform traffic analysis based on who messages are forwarded to.
 
@@ -140,5 +139,3 @@ the latter may occur if only one entry is in the receiving node's kademlia, or i
 When implementing devp2p protocols, topics are derived from protocols' name and version. The Protocol provides a generic Handler that be passed to Pss.Register. This makes it possible to use the same message handler code for pss that is used for directly connected peers in devp2p.
 
 Under the hood, pss implements its own MsgReadWriter, which bridges MsgReadWriter.WriteMsg with Pss.SendRaw, and deftly adds an InjectMsg method which pipes incoming messages to appear on the MsgReadWriter.ReadMsg channel.
-
-

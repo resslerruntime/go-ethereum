@@ -42,16 +42,17 @@ make test
 ## Imports grouping
 
 This projects follows the following pattern for grouping imports in Go files:
-  * imports from standard library
-  * imports from other projects
-  * imports from `jaeger-client-go` project
-  
+
+- imports from standard library
+- imports from other projects
+- imports from `jaeger-client-go` project
+
 For example:
 
 ```go
 import (
 	"fmt"
- 
+
 	"github.com/uber/jaeger-lib/metrics"
 	"go.uber.org/zap"
 
@@ -61,34 +62,34 @@ import (
 
 ## Making A Change
 
-*Before making any significant changes, please [open an
-issue](https://github.com/jaegertracing/jaeger-client-go/issues).* Discussing your proposed
+_Before making any significant changes, please [open an
+issue](https://github.com/jaegertracing/jaeger-client-go/issues)._ Discussing your proposed
 changes ahead of time will make the contribution process smooth for everyone.
 
 Once we've discussed your changes and you've got your code ready, make sure
 that tests are passing (`make test` or `make cover`) and open your PR. Your
 pull request is most likely to be accepted if it:
 
-* Includes tests for new functionality.
-* Follows the guidelines in [Effective
+- Includes tests for new functionality.
+- Follows the guidelines in [Effective
   Go](https://golang.org/doc/effective_go.html) and the [Go team's common code
   review comments](https://github.com/golang/go/wiki/CodeReviewComments).
-* Has a [good commit message](https://chris.beams.io/posts/git-commit/):
-   * Separate subject from body with a blank line
-   * Limit the subject line to 50 characters
-   * Capitalize the subject line
-   * Do not end the subject line with a period
-   * Use the imperative mood in the subject line
-   * Wrap the body at 72 characters
-   * Use the body to explain _what_ and _why_ instead of _how_
-* Each commit must be signed by the author ([see below](#sign-your-work)).
+- Has a [good commit message](https://chris.beams.io/posts/git-commit/):
+  - Separate subject from body with a blank line
+  - Limit the subject line to 50 characters
+  - Capitalize the subject line
+  - Do not end the subject line with a period
+  - Use the imperative mood in the subject line
+  - Wrap the body at 72 characters
+  - Use the body to explain _what_ and _why_ instead of _how_
+- Each commit must be signed by the author ([see below](#sign-your-work)).
 
 ## License
 
 By contributing your code, you agree to license your contribution under the terms
 of the [Apache License](LICENSE).
 
-If you are adding a new file it should have a header like below.  The easiest
+If you are adding a new file it should have a header like below. The easiest
 way to add such header is to run `make fmt`.
 
 ```
@@ -111,7 +112,7 @@ way to add such header is to run `make fmt`.
 
 The sign-off is a simple line at the end of the explanation for the
 patch, which certifies that you wrote it or otherwise have the right to
-pass it on as an open-source patch.  The rules are pretty simple: if you
+pass it on as an open-source patch. The rules are pretty simple: if you
 can certify the below (from
 [developercertificate.org](http://developercertificate.org/)):
 

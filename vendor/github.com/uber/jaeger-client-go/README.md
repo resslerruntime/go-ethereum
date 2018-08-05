@@ -6,8 +6,9 @@ Instrumentation library that implements an
 [OpenTracing](http://opentracing.io) Tracer for Jaeger (https://jaegertracing.io).
 
 **IMPORTANT**: The library's import path is based on its original location under `github.com/uber`. Do not try to import it as `github.com/jaegertracing`, it will not compile. We might revisit this in the next major release.
-  * :white_check_mark: `import "github.com/uber/jaeger-client-go"`
-  * :x: `import "github.com/jaegertracing/jaeger-client-go"`
+
+- :white_check_mark: `import "github.com/uber/jaeger-client-go"`
+- :x: `import "github.com/jaegertracing/jaeger-client-go"`
 
 ## How to Contribute
 
@@ -26,7 +27,7 @@ For example, Jaeger backend imports this library like this:
 
 If you instead want to use the latest version in `master`, you can pull it via `go get`.
 Note that during `go get` you may see build errors due to incompatible dependencies, which is why
-we recommend using semantic versions for dependencies.  The error  may be fixed by running
+we recommend using semantic versions for dependencies. The error may be fixed by running
 `make install` (it will install `glide` if you don't have it):
 
 ```shell
@@ -46,22 +47,22 @@ and [config/example_test.go](./config/example_test.go).
 The tracer can be initialized with values coming from environment variables. None of the env vars are required
 and all of them can be overriden via direct setting of the property on the configuration object.
 
-Property| Description
---- | ---
-JAEGER_SERVICE_NAME | The service name
-JAEGER_AGENT_HOST | The hostname for communicating with agent via UDP
-JAEGER_AGENT_PORT | The port for communicating with agent via UDP
-JAEGER_REPORTER_LOG_SPANS | Whether the reporter should also log the spans
-JAEGER_REPORTER_MAX_QUEUE_SIZE | The reporter's maximum queue size
-JAEGER_REPORTER_FLUSH_INTERVAL | The reporter's flush interval (ms)
-JAEGER_SAMPLER_TYPE | The sampler type
-JAEGER_SAMPLER_PARAM | The sampler parameter (number)
-JAEGER_SAMPLER_MANAGER_HOST_PORT | The host name and port when using the remote controlled sampler
-JAEGER_SAMPLER_MAX_OPERATIONS | The maximum number of operations that the sampler will keep track of
-JAEGER_SAMPLER_REFRESH_INTERVAL | How often the remotely controlled sampler will poll jaeger-agent for the appropriate sampling strategy
-JAEGER_TAGS | A comma separated list of `name = value` tracer level tags, which get added to all reported spans. The value can also refer to an environment variable using the format `${envVarName:default}`, where the `:default` is optional, and identifies a value to be used if the environment variable cannot be found
-JAEGER_DISABLED | Whether the tracer is disabled or not. If true, the default `opentracing.NoopTracer` is used.
-JAEGER_RPC_METRICS | Whether to store RPC metrics
+| Property                         | Description                                                                                                                                                                                                                                                                                                      |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JAEGER_SERVICE_NAME              | The service name                                                                                                                                                                                                                                                                                                 |
+| JAEGER_AGENT_HOST                | The hostname for communicating with agent via UDP                                                                                                                                                                                                                                                                |
+| JAEGER_AGENT_PORT                | The port for communicating with agent via UDP                                                                                                                                                                                                                                                                    |
+| JAEGER_REPORTER_LOG_SPANS        | Whether the reporter should also log the spans                                                                                                                                                                                                                                                                   |
+| JAEGER_REPORTER_MAX_QUEUE_SIZE   | The reporter's maximum queue size                                                                                                                                                                                                                                                                                |
+| JAEGER_REPORTER_FLUSH_INTERVAL   | The reporter's flush interval (ms)                                                                                                                                                                                                                                                                               |
+| JAEGER_SAMPLER_TYPE              | The sampler type                                                                                                                                                                                                                                                                                                 |
+| JAEGER_SAMPLER_PARAM             | The sampler parameter (number)                                                                                                                                                                                                                                                                                   |
+| JAEGER_SAMPLER_MANAGER_HOST_PORT | The host name and port when using the remote controlled sampler                                                                                                                                                                                                                                                  |
+| JAEGER_SAMPLER_MAX_OPERATIONS    | The maximum number of operations that the sampler will keep track of                                                                                                                                                                                                                                             |
+| JAEGER_SAMPLER_REFRESH_INTERVAL  | How often the remotely controlled sampler will poll jaeger-agent for the appropriate sampling strategy                                                                                                                                                                                                           |
+| JAEGER_TAGS                      | A comma separated list of `name = value` tracer level tags, which get added to all reported spans. The value can also refer to an environment variable using the format `${envVarName:default}`, where the `:default` is optional, and identifies a value to be used if the environment variable cannot be found |
+| JAEGER_DISABLED                  | Whether the tracer is disabled or not. If true, the default `opentracing.NoopTracer` is used.                                                                                                                                                                                                                    |
+| JAEGER_RPC_METRICS               | Whether to store RPC metrics                                                                                                                                                                                                                                                                                     |
 
 ### Closing the tracer via `io.Closer`
 
@@ -90,7 +91,7 @@ example: `name:jaeger.traces, state:started, sampled:y`. See [metrics.go](./metr
 file for the full list and descriptions of emitted metrics.
 
 The monitoring backend is represented by the `metrics.Factory` interface from package
-[`"github.com/uber/jaeger-lib/metrics"`](https://github.com/jaegertracing/jaeger-lib/tree/master/metrics).  An implementation
+[`"github.com/uber/jaeger-lib/metrics"`](https://github.com/jaegertracing/jaeger-lib/tree/master/metrics). An implementation
 of that interface can be passed as an option to either the Configuration object or the Tracer
 constructor, for example:
 
@@ -148,8 +149,9 @@ into one, e.g. to attach a logging reporter to the main remote reporter.
 
 The remote reporter uses "transports" to actually send the spans out
 of process. Currently the supported transports include:
-  * [Jaeger Thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/agent.thrift) over UDP or HTTP,
-  * [Zipkin Thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/zipkincore.thrift) over HTTP.
+
+- [Jaeger Thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/agent.thrift) over UDP or HTTP,
+- [Zipkin Thrift](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/zipkincore.thrift) over HTTP.
 
 ### Sampling
 
@@ -159,18 +161,19 @@ unique ID is generated, a sampling decision is made whether this trace
 should be sampled. The sampling decision is propagated to all downstream
 calls via the `flags` field of the trace context. The following samplers
 are available:
-  1. `RemotelyControlledSampler` uses one of the other simpler samplers
-     and periodically updates it by polling an external server. This
-     allows dynamic control of the sampling strategies.
-  1. `ConstSampler` always makes the same sampling decision for all
-     trace IDs. it can be configured to either sample all traces, or
-     to sample none.
-  1. `ProbabilisticSampler` uses a fixed sampling rate as a probability
-     for a given trace to be sampled. The actual decision is made by
-     comparing the trace ID with a random number multiplied by the
-     sampling rate.
-  1. `RateLimitingSampler` can be used to allow only a certain fixed
-     number of traces to be sampled per second.
+
+1.  `RemotelyControlledSampler` uses one of the other simpler samplers
+    and periodically updates it by polling an external server. This
+    allows dynamic control of the sampling strategies.
+1.  `ConstSampler` always makes the same sampling decision for all
+    trace IDs. it can be configured to either sample all traces, or
+    to sample none.
+1.  `ProbabilisticSampler` uses a fixed sampling rate as a probability
+    for a given trace to be sampled. The actual decision is made by
+    comparing the trace ID with a random number multiplied by the
+    sampling rate.
+1.  `RateLimitingSampler` can be used to allow only a certain fixed
+    number of traces to be sampled per second.
 
 ### Baggage Injection
 
@@ -213,7 +216,7 @@ import (
 )
 
 span := opentracing.SpanFromContext(ctx)
-ext.SamplingPriority.Set(span, 1)    
+ext.SamplingPriority.Set(span, 1)
 ```
 
 #### Via HTTP Headers
@@ -247,7 +250,6 @@ However it is not the default propagation format, see [here](zipkin/README.md#Ne
 ## License
 
 [Apache 2.0 License](LICENSE).
-
 
 [doc-img]: https://godoc.org/github.com/uber/jaeger-client-go?status.svg
 [doc]: https://godoc.org/github.com/uber/jaeger-client-go

@@ -1,5 +1,4 @@
-Swarm development environment
-=============================
+# Swarm development environment
 
 The Swarm development environment is a Linux bash shell which can be run in a
 Docker container and provides a predictable build and test environment.

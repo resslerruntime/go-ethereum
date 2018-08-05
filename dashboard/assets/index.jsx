@@ -16,26 +16,26 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
-import React from 'react';
-import {render} from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import createMuiTheme from 'material-ui/styles/createMuiTheme';
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import createMuiTheme from "material-ui/styles/createMuiTheme";
 
-import Dashboard from './components/Dashboard';
+import Dashboard from "./components/Dashboard";
 
 const theme: Object = createMuiTheme({
-	palette: {
-		type: 'dark',
-	},
+  palette: {
+    type: "dark"
+  }
 });
-const dashboard = document.getElementById('dashboard');
+const dashboard = document.getElementById("dashboard");
 if (dashboard) {
-	// Renders the whole dashboard.
-	render(
-		<MuiThemeProvider theme={theme}>
-			<Dashboard />
-		</MuiThemeProvider>,
-		dashboard,
-	);
+  // Renders the whole dashboard.
+  render(
+    <MuiThemeProvider theme={theme}>
+      <Dashboard />
+    </MuiThemeProvider>,
+    dashboard
+  );
 }

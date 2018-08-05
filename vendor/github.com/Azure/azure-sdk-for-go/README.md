@@ -6,9 +6,9 @@ on Microsoft Azure REST APIs.
 [![GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go?status.svg)](https://godoc.org/github.com/Azure/azure-sdk-for-go) [![Build Status](https://travis-ci.org/Azure/azure-sdk-for-go.svg?branch=master)](https://travis-ci.org/Azure/azure-sdk-for-go)
 
 > **NOTE:** This repository is under heavy ongoing development and
-is likely to break over time. We currently do not have any releases
-yet. If you are planning to use the repository, please consider vendoring
-the packages in your project and update them when a stable tag is out.
+> is likely to break over time. We currently do not have any releases
+> yet. If you are planning to use the repository, please consider vendoring
+> the packages in your project and update them when a stable tag is out.
 
 # Packages
 
@@ -98,5 +98,6 @@ If you would like to become an active contributor to this project please follow 
 
 This project is published under [Apache 2.0 License](LICENSE).
 
------
+---
+
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

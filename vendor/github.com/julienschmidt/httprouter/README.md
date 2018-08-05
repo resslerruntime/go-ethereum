@@ -1,6 +1,6 @@
 # HttpRouter [![Build Status](https://travis-ci.org/julienschmidt/httprouter.svg?branch=master)](https://travis-ci.org/julienschmidt/httprouter) [![Coverage Status](https://coveralls.io/repos/github/julienschmidt/httprouter/badge.svg?branch=master)](https://coveralls.io/github/julienschmidt/httprouter?branch=master) [![GoDoc](https://godoc.org/github.com/julienschmidt/httprouter?status.svg)](http://godoc.org/github.com/julienschmidt/httprouter)
 
-HttpRouter is a lightweight high performance HTTP request router (also called *multiplexer* or just *mux* for short) for [Go](https://golang.org/).
+HttpRouter is a lightweight high performance HTTP request router (also called _multiplexer_ or just _mux_ for short) for [Go](https://golang.org/).
 
 In contrast to the [default mux](https://golang.org/pkg/net/http/#ServeMux) of Go's `net/http` package, this router supports variables in the routing pattern and matches against the request method. It also scales better.
 
@@ -8,7 +8,7 @@ The router is optimized for high performance and a small memory footprint. It sc
 
 ## Features
 
-**Only explicit matches:** With other routers, like [`http.ServeMux`](https://golang.org/pkg/net/http/#ServeMux), a requested URL path could match multiple patterns. Therefore they have some awkward pattern priority rules, like *longest match* or *first registered, first matched*. By design of this router, a request can only match exactly one or no route. As a result, there are also no unintended matches, which makes it great for SEO and improves the user experience.
+**Only explicit matches:** With other routers, like [`http.ServeMux`](https://golang.org/pkg/net/http/#ServeMux), a requested URL path could match multiple patterns. Therefore they have some awkward pattern priority rules, like _longest match_ or _first registered, first matched_. By design of this router, a request can only match exactly one or no route. As a result, there are also no unintended matches, which makes it great for SEO and improves the user experience.
 
 **Stop caring about trailing slashes:** Choose the URL style you like, the router automatically redirects the client if a trailing slash is missing or if there is one extra. Of course it only does so, if the new path has a handler. If you don't like it, you can [turn off this behavior](https://godoc.org/github.com/julienschmidt/httprouter#Router.RedirectTrailingSlash).
 
@@ -24,7 +24,7 @@ The router is optimized for high performance and a small memory footprint. It sc
 
 **Perfect for APIs:** The router design encourages to build sensible, hierarchical RESTful APIs. Moreover it has builtin native support for [OPTIONS requests](http://zacstewart.com/2012/04/14/http-options-method.html) and `405 Method Not Allowed` replies.
 
-Of course you can also set **custom [`NotFound`](https://godoc.org/github.com/julienschmidt/httprouter#Router.NotFound) and  [`MethodNotAllowed`](https://godoc.org/github.com/julienschmidt/httprouter#Router.MethodNotAllowed) handlers** and [**serve static files**](https://godoc.org/github.com/julienschmidt/httprouter#Router.ServeFiles).
+Of course you can also set **custom [`NotFound`](https://godoc.org/github.com/julienschmidt/httprouter#Router.NotFound) and [`MethodNotAllowed`](https://godoc.org/github.com/julienschmidt/httprouter#Router.MethodNotAllowed) handlers** and [**serve static files**](https://godoc.org/github.com/julienschmidt/httprouter#Router.ServeFiles).
 
 ## Usage
 
@@ -61,7 +61,7 @@ func main() {
 
 ### Named parameters
 
-As you can see, `:name` is a *named parameter*. The values are accessible via `httprouter.Params`, which is just a slice of `httprouter.Param`s. You can get the value of a parameter either by its index in the slice, or by using the `ByName(name)` method: `:name` can be retrived by `ByName("name")`.
+As you can see, `:name` is a _named parameter_. The values are accessible via `httprouter.Params`, which is just a slice of `httprouter.Param`s. You can get the value of a parameter either by its index in the slice, or by using the `ByName(name)` method: `:name` can be retrived by `ByName("name")`.
 
 Named parameters only match a single path segment:
 
@@ -78,7 +78,7 @@ Pattern: /user/:user
 
 ### Catch-All parameters
 
-The second type are *catch-all* parameters and have the form `*name`. Like the name suggests, they match everything. Therefore they must always be at the **end** of the pattern:
+The second type are _catch-all_ parameters and have the form `*name`. Like the name suggests, they match everything. Therefore they must always be at the **end** of the pattern:
 
 ```
 Pattern: /src/*filepath
@@ -90,7 +90,7 @@ Pattern: /src/*filepath
 
 ## How does it work?
 
-The router relies on a tree structure which makes heavy use of *common prefixes*, it is basically a *compact* [*prefix tree*](https://en.wikipedia.org/wiki/Trie) (or just [*Radix tree*](https://en.wikipedia.org/wiki/Radix_tree)). Nodes with a common prefix also share a common parent. Here is a short example what the routing tree for the `GET` request method could look like:
+The router relies on a tree structure which makes heavy use of _common prefixes_, it is basically a _compact_ [_prefix tree_](https://en.wikipedia.org/wiki/Trie) (or just [_Radix tree_](https://en.wikipedia.org/wiki/Radix_tree)). Nodes with a common prefix also share a common parent. Here is a short example what the routing tree for the `GET` request method could look like:
 
 ```
 Priority   Path             Handle
@@ -106,14 +106,14 @@ Priority   Path             Handle
 1          └contact\        *<8>
 ```
 
-Every `*<num>` represents the memory address of a handler function (a pointer). If you follow a path trough the tree from the root to the leaf, you get the complete route path, e.g `\blog\:post\`, where `:post` is just a placeholder ([*parameter*](#named-parameters)) for an actual post name. Unlike hash-maps, a tree structure also allows us to use dynamic parts like the `:post` parameter, since we actually match against the routing patterns instead of just comparing hashes. [As benchmarks show](https://github.com/julienschmidt/go-http-routing-benchmark), this works very well and efficient.
+Every `*<num>` represents the memory address of a handler function (a pointer). If you follow a path trough the tree from the root to the leaf, you get the complete route path, e.g `\blog\:post\`, where `:post` is just a placeholder ([_parameter_](#named-parameters)) for an actual post name. Unlike hash-maps, a tree structure also allows us to use dynamic parts like the `:post` parameter, since we actually match against the routing patterns instead of just comparing hashes. [As benchmarks show](https://github.com/julienschmidt/go-http-routing-benchmark), this works very well and efficient.
 
 Since URL paths have a hierarchical structure and make use only of a limited set of characters (byte values), it is very likely that there are a lot of common prefixes. This allows us to easily reduce the routing into ever smaller problems. Moreover the router manages a separate tree for every request method. For one thing it is more space efficient than holding a method->handle map in every single node, for another thing is also allows us to greatly reduce the routing problem before even starting the look-up in the prefix-tree.
 
 For even better scalability, the child nodes on each tree level are ordered by priority, where the priority is just the number of handles registered in sub nodes (children, grandchildren, and so on..). This helps in two ways:
 
-1. Nodes which are part of the most routing paths are evaluated first. This helps to make as much routes as possible to be reachable as fast as possible.
-2. It is some sort of cost compensation. The longest reachable path (highest cost) can always be evaluated first. The following scheme visualizes the tree structure. Nodes are evaluated from top to bottom and from left to right.
+1.  Nodes which are part of the most routing paths are evaluated first. This helps to make as much routes as possible to be reachable as fast as possible.
+2.  It is some sort of cost compensation. The longest reachable path (highest cost) can always be evaluated first. The following scheme visualizes the tree structure. Nodes are evaluated from top to bottom and from left to right.
 
 ```
 ├------------
@@ -131,7 +131,7 @@ For even better scalability, the child nodes on each tree level are ordered by p
 
 Just try it out for yourself, the usage of HttpRouter is very straightforward. The package is compact and minimalistic, but also probably one of the easiest routers to set up.
 
-## Where can I find Middleware *X*?
+## Where can I find Middleware _X_?
 
 This package just provides a very efficient request router with a few extra features. The router is just a [`http.Handler`](https://golang.org/pkg/net/http/#Handler), you can chain any http.Handler compatible middleware before the router, for example the [Gorilla handlers](http://www.gorillatoolkit.org/pkg/handlers). Or you could [just write your own](https://justinas.org/writing-http-middleware-in-go/), it's very easy!
 
@@ -249,18 +249,18 @@ But this approach sidesteps the strict core rules of this router to avoid routin
 
 If the HttpRouter is a bit too minimalistic for you, you might try one of the following more high-level 3rd-party web frameworks building upon the HttpRouter package:
 
-* [Ace](https://github.com/plimble/ace): Blazing fast Go Web Framework
-* [api2go](https://github.com/manyminds/api2go): A JSON API Implementation for Go
-* [Gin](https://github.com/gin-gonic/gin): Features a martini-like API with much better performance
-* [Goat](https://github.com/bahlo/goat): A minimalistic REST API server in Go
-* [goMiddlewareChain](https://github.com/TobiEiss/goMiddlewareChain): An express.js-like-middleware-chain
-* [Hikaru](https://github.com/najeira/hikaru): Supports standalone and Google AppEngine
-* [Hitch](https://github.com/nbio/hitch): Hitch ties httprouter, [httpcontext](https://github.com/nbio/httpcontext), and middleware up in a bow
-* [httpway](https://github.com/corneldamian/httpway): Simple middleware extension with context for httprouter and a server with gracefully shutdown support
-* [kami](https://github.com/guregu/kami): A tiny web framework using x/net/context
-* [Medeina](https://github.com/imdario/medeina): Inspired by Ruby's Roda and Cuba
-* [Neko](https://github.com/rocwong/neko): A lightweight web application framework for Golang
-* [River](https://github.com/abiosoft/river): River is a simple and lightweight REST server
-* [Roxanna](https://github.com/iamthemuffinman/Roxanna): An amalgamation of httprouter, better logging, and hot reload
-* [siesta](https://github.com/VividCortex/siesta): Composable HTTP handlers with contexts
-* [xmux](https://github.com/rs/xmux): xmux is a httprouter fork on top of xhandler (net/context aware)
+- [Ace](https://github.com/plimble/ace): Blazing fast Go Web Framework
+- [api2go](https://github.com/manyminds/api2go): A JSON API Implementation for Go
+- [Gin](https://github.com/gin-gonic/gin): Features a martini-like API with much better performance
+- [Goat](https://github.com/bahlo/goat): A minimalistic REST API server in Go
+- [goMiddlewareChain](https://github.com/TobiEiss/goMiddlewareChain): An express.js-like-middleware-chain
+- [Hikaru](https://github.com/najeira/hikaru): Supports standalone and Google AppEngine
+- [Hitch](https://github.com/nbio/hitch): Hitch ties httprouter, [httpcontext](https://github.com/nbio/httpcontext), and middleware up in a bow
+- [httpway](https://github.com/corneldamian/httpway): Simple middleware extension with context for httprouter and a server with gracefully shutdown support
+- [kami](https://github.com/guregu/kami): A tiny web framework using x/net/context
+- [Medeina](https://github.com/imdario/medeina): Inspired by Ruby's Roda and Cuba
+- [Neko](https://github.com/rocwong/neko): A lightweight web application framework for Golang
+- [River](https://github.com/abiosoft/river): River is a simple and lightweight REST server
+- [Roxanna](https://github.com/iamthemuffinman/Roxanna): An amalgamation of httprouter, better logging, and hot reload
+- [siesta](https://github.com/VividCortex/siesta): Composable HTTP handlers with contexts
+- [xmux](https://github.com/rs/xmux): xmux is a httprouter fork on top of xhandler (net/context aware)

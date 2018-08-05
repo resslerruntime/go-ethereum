@@ -1,6 +1,7 @@
 # registry
+
 --
-    import "github.com/robertkrimen/otto/registry"
+import "github.com/robertkrimen/otto/registry"
 
 Package registry is an expirmental package to facillitate altering the otto
 runtime via import.
@@ -9,7 +10,7 @@ This interface can change at any time.
 
 ## Usage
 
-#### func  Apply
+#### func Apply
 
 ```go
 func Apply(callback func(Entry))
@@ -22,20 +23,19 @@ type Entry struct {
 }
 ```
 
-
-#### func  Register
+#### func Register
 
 ```go
 func Register(source func() string) *Entry
 ```
 
-#### func (*Entry) Disable
+#### func (\*Entry) Disable
 
 ```go
 func (self *Entry) Disable()
 ```
 
-#### func (*Entry) Enable
+#### func (\*Entry) Enable
 
 ```go
 func (self *Entry) Enable()

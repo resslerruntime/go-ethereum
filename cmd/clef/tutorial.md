@@ -34,21 +34,26 @@ NOTE: This file does not contain your accounts. Those need to be backed up separ
 Now, you can create a rule-file.
 
 ```javascript
-function ApproveListing(){
-    return "Approve"
+function ApproveListing() {
+  return "Approve";
 }
 ```
+
 Get the `sha256` hash....
+
 ```text
 #sha256sum rules.js
 6c21d1737429d6d4f2e55146da0797782f3c0a0355227f19d702df377c165d72  rules.js
 ```
+
 ...And then `attest` the file:
+
 ```text
 #./signer attest 6c21d1737429d6d4f2e55146da0797782f3c0a0355227f19d702df377c165d72
 
 INFO [02-21|12:14:38] Ruleset attestation updated              sha256=6c21d1737429d6d4f2e55146da0797782f3c0a0355227f19d702df377c165d72
 ```
+
 At this point, we then start the signer with the rule-file:
 
 ```text
@@ -67,7 +72,6 @@ INFO [02-21|12:15:18] HTTP endpoint opened                     url=http://localh
 * extapi_ipc : <nil>
 * extapi_version : 2.0.0
 * intapi_version : 1.2.0
-
 ```
 
 Any list-requests will now be auto-approved by our rule-file.
@@ -93,17 +97,15 @@ drwx------ 3 martin martin 4096 feb 21 12:14 ..
 
 #cat /home/martin/.signer/43f73718397aa54d1b22/config.json
 {"ruleset_sha256":{"iv":"6v4W4tfJxj3zZFbl","c":"6dt5RTDiTq93yh1qDEjpsat/tsKG7cb+vr3sza26IPL2fvsQ6ZoqFx++CPUa8yy6fD9Bbq41L01ehkKHTG3pOAeqTW6zc/+t0wv3AB6xPmU="}}
-
 ```
 
 In `~/.signer`, the `secrets.dat` file was created, containing the `master_seed`.
 The `master_seed` was then used to derive a few other things:
 
 - `vault_location` : in this case `43f73718397aa54d1b22` .
-   - Thus, if you use a different `master_seed`, another `vault_location` will be used that does not conflict with each other.
-   - Example: `signer --signersecret /path/to/afile ...`
+  - Thus, if you use a different `master_seed`, another `vault_location` will be used that does not conflict with each other.
+  - Example: `signer --signersecret /path/to/afile ...`
 - `config.json` which is the encrypted key/value storage for configuration data, containing the key `ruleset_sha256`.
-
 
 ## Adding credentials
 
@@ -114,33 +116,35 @@ In order to make more useful rules; sign transactions, the signer needs access t
 
 INFO [02-21|13:43:21] Credential store updated                 key=0x694267f14675d7e1b9494fd8d72fefe1755710fa
 ```
+
 ## More advanced rules
 
 Now let's update the rules to make use of credentials
 
 ```javascript
-function ApproveListing(){
-    return "Approve"
+function ApproveListing() {
+  return "Approve";
 }
-function ApproveSignData(r){
-    if( r.address.toLowerCase() == "0x694267f14675d7e1b9494fd8d72fefe1755710fa")
-    {
-        if(r.message.indexOf("bazonk") >= 0){
-            return "Approve"
-        }
-        return "Reject"
+function ApproveSignData(r) {
+  if (r.address.toLowerCase() == "0x694267f14675d7e1b9494fd8d72fefe1755710fa") {
+    if (r.message.indexOf("bazonk") >= 0) {
+      return "Approve";
     }
-    // Otherwise goes to manual processing
+    return "Reject";
+  }
+  // Otherwise goes to manual processing
 }
-
 ```
+
 In this example,
-* any requests to sign data with the account `0x694...` will be
-    * auto-approved if the message contains with `bazonk`,
-    * and auto-rejected if it does not.
-    * Any other signing-requests will be passed along for manual approve/reject.
+
+- any requests to sign data with the account `0x694...` will be
+  - auto-approved if the message contains with `bazonk`,
+  - and auto-rejected if it does not.
+  - Any other signing-requests will be passed along for manual approve/reject.
 
 ..attest the new file
+
 ```text
 #sha256sum rules.js
 2a0cb661dacfc804b6e95d935d813fd17c0997a7170e4092ffbc34ca976acd9f  rules.js
@@ -170,6 +174,7 @@ INFO [02-21|14:41:56] HTTP endpoint opened                     url=http://localh
 * extapi_ipc : <nil>
 INFO [02-21|14:41:56] error occurred during execution          error="ReferenceError: 'OnSignerStartup' is not defined"
 ```
+
 And then test signing, once with `bazonk` and once without:
 
 ```
@@ -178,10 +183,10 @@ And then test signing, once with `bazonk` and once without:
 
 #curl -H "Content-Type: application/json" -X POST --data "{\"jsonrpc\":\"2.0\",\"method\":\"account_sign\",\"params\":[\"0x694267f14675d7e1b9494fd8d72fefe1755710fa\",\"0x$(xxd -pu <<< '  bonk baz gaz')\"],\"id\":67}" http://localhost:8550/
 {"jsonrpc":"2.0","id":67,"error":{"code":-32000,"message":"Request denied"}}
-
 ```
 
 Meanwhile, in the signer output:
+
 ```text
 INFO [02-21|14:42:41] Op approved
 INFO [02-21|14:42:56] Op rejected

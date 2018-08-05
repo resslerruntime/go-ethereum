@@ -1,16 +1,11 @@
 # Color [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](http://godoc.org/github.com/fatih/color) [![Build Status](http://img.shields.io/travis/fatih/color.svg?style=flat-square)](https://travis-ci.org/fatih/color)
 
-
-
 Color lets you use colorized outputs in terms of [ANSI Escape
 Codes](http://en.wikipedia.org/wiki/ANSI_escape_code#Colors) in Go (Golang). It
 has support for Windows too! The API can be used in several ways, pick one that
 suits you.
 
-
-
 ![Color](http://i.imgur.com/c1JI0lA.png)
-
 
 ## Install
 
@@ -32,7 +27,6 @@ color.Blue("Prints %s in blue.", "text")
 // These are using the default foreground colors
 color.Red("We have red")
 color.Magenta("And many others ..")
-
 ```
 
 ### Mix and reuse colors
@@ -136,7 +130,6 @@ suppose you have a CLI app and a `--no-color` bool flag. You can easily disable
 the color output with:
 
 ```go
-
 var flagNoColor = flag.Bool("no-color", false, "Disable color output")
 
 if *flagNoColor {
@@ -160,16 +153,14 @@ c.Println("This prints again cyan...")
 
 ## Todo
 
-* Save/Return previous values
-* Evaluate fmt.Formatter interface
-
+- Save/Return previous values
+- Evaluate fmt.Formatter interface
 
 ## Credits
 
- * [Fatih Arslan](https://github.com/fatih)
- * Windows support via @mattn: [colorable](https://github.com/mattn/go-colorable)
+- [Fatih Arslan](https://github.com/fatih)
+- Windows support via @mattn: [colorable](https://github.com/mattn/go-colorable)
 
 ## License
 
 The MIT License (MIT) - see [`LICENSE.md`](https://github.com/fatih/color/blob/master/LICENSE.md) for more details
-
